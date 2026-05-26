@@ -13,65 +13,98 @@ export default function App() {
     software: [
       {
         id: 1,
-        title: "Full Stack Web Development Bootcamp",
-        university: "Tech Institute of Global Excellence",
+        title: "Full Stack Development",
+        university: "MERN Stack & More",
         duration: "6 Months",
         format: "Online Interactive",
         price: "₹99,000",
-        rating: 4.8,
+        rating: 4.9,
         reviews: "12.4k",
         bestseller: true
       },
       {
         id: 2,
-        title: "Advanced Cloud Computing & DevOps",
-        university: "Silicon Valley Tech Academy",
-        duration: "8 Months",
-        format: "Weekend Live Classes",
-        price: "₹1,15,000",
-        rating: 4.9,
+        title: "Web Development",
+        university: "Frontend & Backend",
+        duration: "4 Months",
+        format: "Online Interactive",
+        price: "₹65,000",
+        rating: 4.8,
         reviews: "8.2k",
         bestseller: false
       },
       {
         id: 3,
-        title: "Cybersecurity & Ethical Hacking",
-        university: "Global Tech Board",
+        title: "Java Programming",
+        university: "Core Java to Advanced",
         duration: "5 Months",
-        format: "Self-paced + Live Labs",
+        format: "Weekend Live Classes",
         price: "₹75,000",
         rating: 4.7,
         reviews: "5.1k",
+        bestseller: false
+      },
+      {
+        id: 4,
+        title: "C++ Programming",
+        university: "From Basics to Advanced",
+        duration: "4 Months",
+        format: "Self-paced + Live Labs",
+        price: "₹60,000",
+        rating: 4.8,
+        reviews: "4.3k",
         bestseller: false
       }
     ],
     data: [
       {
-        id: 4,
-        title: "Data Science & Machine Learning Masterclass",
-        university: "Tech Institute of Global Excellence",
-        duration: "9 Months",
+        id: 5,
+        title: "Python Programming",
+        university: "From Basics to Advanced",
+        duration: "3 Months",
         format: "Online Interactive",
-        price: "₹1,35,000",
+        price: "₹45,000",
         rating: 4.9,
         reviews: "15.8k",
         bestseller: true
       },
       {
-        id: 5,
-        title: "Data Analytics for Business",
-        university: "Global Business School",
-        duration: "4 Months",
-        format: "Online Interactive",
-        price: "₹65,000",
+        id: 6,
+        title: "SQL Database Masterclass",
+        university: "Master Databases",
+        duration: "3 Months",
+        format: "Self-paced + Live Labs",
+        price: "₹35,000",
         rating: 4.6,
         reviews: "3.2k",
         bestseller: false
+      },
+      {
+        id: 7,
+        title: "Data Analysis",
+        university: "Analyze Data, Drive Insights",
+        duration: "4 Months",
+        format: "Online Interactive",
+        price: "₹55,000",
+        rating: 4.8,
+        reviews: "2.1k",
+        bestseller: true
       }
     ],
     ai: [
       {
-        id: 6,
+        id: 8,
+        title: "Cyber Security",
+        university: "Secure Systems, Build Future",
+        duration: "6 Months",
+        format: "Live Workshops",
+        price: "₹85,000",
+        rating: 5.0,
+        reviews: "1.9k",
+        bestseller: true
+      },
+      {
+        id: 9,
         title: "Applied Generative AI & Prompt Engineering",
         university: "Silicon Valley Tech Academy",
         duration: "3 Months",
@@ -167,13 +200,13 @@ export default function App() {
             {/* Hero Content */}
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-700 text-sm font-bold tracking-wide mb-6">
-                <TrendingUp size={16} /> Learn Today. Lead Tomorrow.
+                <TrendingUp size={16} /> We Are Officially Launched!
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
-                Master the Future of <br/><span className="text-red-600">Technology.</span>
+                Learn. Build. <br/><span className="text-red-600">Succeed.</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-lg">
-                Industry-vetted curriculum and expert mentorship designed to fast-track your career in software, AI, and data.
+                Industry-ready tech education dedicated to delivering excellence with <strong>Real Projects</strong> & <strong>Real Skills</strong>.
               </p>
               
               {/* High-Conversion Form inside Hero */}
@@ -246,6 +279,68 @@ export default function App() {
             <div className="text-xl font-black text-red-600">Oracle</div>
             <div className="text-xl font-bold text-indigo-600 hidden md:block">Accenture</div>
           </div>
+        </div>
+      </section>
+
+      {/* What We Offer Section (From Instagram) */}
+      <section className="bg-[#0a0a0a] text-white py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          
+          <span className="text-red-500 text-xs font-black uppercase tracking-widest block mb-3">WELCOME TO BRILLNEX TECHNOLOGIES</span>
+          <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tight text-white">
+            We Are Officially <span className="text-red-600">Launched!</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base mb-12 leading-relaxed font-medium">
+            Brillnex Technologies is an online learning platform dedicated to delivering industry-ready tech education with <strong className="text-white font-black">Real Projects</strong> and <strong className="text-white font-black">Real Skills</strong>.
+          </p>
+
+          <div className="border-t border-white/10 pt-4 mb-10">
+            <span className="bg-[#0a0a0a] px-6 text-sm font-black tracking-[0.2em] text-gray-500 uppercase">WHAT WE OFFER</span>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-16">
+            {[
+              { title: "ONLINE TECH COURSES", desc: "Expert Vetted Curriculums", icon: <BookOpen className="text-red-500" size={28} /> },
+              { title: "REAL PROJECTS & TRAINING", desc: "100% Hands-on Practice", icon: <Award className="text-red-500" size={28} /> },
+              { title: "INDUSTRY-READY SKILLS", desc: "Directly Marketable", icon: <TrendingUp className="text-red-500" size={28} /> },
+              { title: "EXPERT MENTORSHIP", desc: "1-on-1 Personal Advice", icon: <Users className="text-red-500" size={28} /> },
+              { title: "INTERNSHIP SUPPORT", desc: "Guaranteed Placement Paths", icon: <Briefcase className="text-red-500" size={28} /> },
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-red-500/30 hover:scale-[1.03] hover:bg-white/[0.07]">
+                <div className="w-14 h-14 bg-red-600/10 rounded-full flex items-center justify-center mb-4 border border-red-500/20">
+                  {item.icon}
+                </div>
+                <h4 className="text-xs font-black tracking-wider text-white mb-2 uppercase">{item.title}</h4>
+                <p className="text-[10px] text-gray-500 font-semibold">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="inline-flex flex-col sm:flex-row items-center gap-6 bg-white/5 border border-white/10 px-8 py-5 rounded-2xl shadow-xl">
+            <div className="flex items-center gap-3">
+              <span className="flex h-3.5 w-3.5 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-600"></span>
+              </span>
+              <div className="text-left">
+                <h5 className="font-extrabold text-sm text-red-500 uppercase tracking-widest leading-none">ADMISSIONS OPEN</h5>
+                <p className="text-[10px] text-gray-400 font-semibold mt-1">Start your tech journey with us today!</p>
+              </div>
+            </div>
+            <div className="h-px sm:h-8 w-full sm:w-px bg-white/10"></div>
+            <a 
+              href="https://wa.me/917204398855" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-lg shadow-red-600/20 transition-all hover:scale-105 active:scale-95 border border-red-500/20"
+            >
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.48 4.905 1.481 5.382 0 9.762-4.38 9.766-9.764.002-2.607-1.011-5.059-2.855-6.905C16.57 2.122 14.12 1.1 11.517 1.1c-5.385 0-9.765 4.38-9.769 9.764-.002 1.856.5 3.666 1.453 5.291L2.164 22l6.096-1.599c-1.54 1.055-1.574.966-.613.753z"/>
+              </svg>
+              <span>DM US / WHATSAPP</span>
+            </a>
+          </div>
+
         </div>
       </section>
 
@@ -346,6 +441,40 @@ export default function App() {
         </div>
       </section>
 
+      {/* Why Choose Brillnex Section (From Instagram) */}
+      <section className="py-20 bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-red-600 text-xs font-black uppercase tracking-widest block mb-3">LEARN. BUILD. SUCCEED.</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Why Choose Brillnex?</h2>
+            <p className="text-lg text-gray-600 font-medium">We don't just teach technology—we empower you to master it with hands-on experience and professional support.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: "Real Projects", desc: "Work on real-time projects and build an industry-grade portfolio.", icon: <BookOpen className="text-red-600" size={24} /> },
+              { title: "Expert Trainers", desc: "Learn direct from experienced industry software engineers and tech professionals.", icon: <Users className="text-red-600" size={24} /> },
+              { title: "Practical Learning", desc: "100% practical, hands-on application to make sure you retain what you build.", icon: <Award className="text-red-600" size={24} /> },
+              { title: "Career Support", desc: "Dedicated career coaching, resume workshops, and active mock interviews.", icon: <Briefcase className="text-red-600" size={24} /> },
+              { title: "Flexible Learning", desc: "Learn at your own pace, anytime, with life-time access to cohort archives.", icon: <Clock className="text-red-600" size={24} /> },
+              { title: "Certificate", desc: "Receive a verified certificate of completion recognized by our hiring networks.", icon: <CheckCircle className="text-red-600" size={24} /> },
+            ].map((usp, idx) => (
+              <div key={idx} className="bg-gray-50 border border-gray-100 p-8 rounded-2xl transition-all duration-300 hover:shadow-xl hover:border-red-200 hover:bg-white flex gap-4">
+                <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center shrink-0 border border-red-100">
+                  {usp.icon}
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-950 mb-2">{usp.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed font-medium">{usp.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* Dark Theme Section: Outcomes */}
       <section id="outcomes" className="bg-[#0a0a0a] py-24 relative overflow-hidden">
         {/* Subtle decorative background */}
@@ -424,11 +553,13 @@ export default function App() {
                 </div>
               </div>
               <p className="text-gray-400 mb-6 max-w-sm">
-                Empowering professionals globally to upskill, transition careers, and achieve their maximum potential through high-quality online education.
+                Empowering professionals globally to upskill, transition careers, and achieve their maximum potential through high-quality online education with Real Projects & Real Skills.
               </p>
-              <div className="text-sm font-bold text-gray-300">
-                Questions? Call us at <br/>
-                <span className="text-red-500 text-lg">1-800-BRILLNEX</span>
+              <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Admissions & Inquiries</div>
+              <div className="space-y-2 text-sm font-bold text-gray-300">
+                <div>WhatsApp: <a href="https://wa.me/917204398855" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:underline">7204398855</a></div>
+                <div>Email: <a href="mailto:Brillnextechnologies@gmail.com" className="text-red-500 hover:underline">Brillnextechnologies@gmail.com</a></div>
+                <div>Instagram: <a href="https://instagram.com/brillnex_technologies" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:underline">@brillnex_technologies</a></div>
               </div>
             </div>
 
