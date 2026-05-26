@@ -487,8 +487,61 @@ export default function App() {
           {/* Course Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courseData[activeTab].map((course) => (
-              <div key={course.id} className="group bg-white/70 backdrop-blur-md border border-white/90 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgba(30,136,255,0.12)] hover:-translate-y-[3px] hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full">
+              <div key={course.id} className="group bg-white/70 backdrop-blur-md border border-white/90 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgba(30,136,255,0.12)] hover:-translate-y-[3px] hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full relative">
                 
+                {/* Popout Key Points Overlay */}
+                <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-lg border border-white/10 opacity-0 pointer-events-none translate-y-6 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) rounded-2xl p-6 flex flex-col justify-between z-30 text-white shadow-2xl shadow-blue-500/20">
+                  <div>
+                    {/* Header */}
+                    <div className="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
+                      <div className="h-2 w-2 rounded-full bg-brand-cyan animate-ping" />
+                      <span className="text-brand-cyan text-xs font-black tracking-[0.2em] uppercase">Key Points</span>
+                    </div>
+                    {/* Title */}
+                    <h4 className="text-md font-bold text-slate-100 mb-4 line-clamp-1">{course.title}</h4>
+                    {/* List Items */}
+                    <ul className="space-y-3 text-xs text-slate-300 font-medium">
+                      <li className="flex items-start gap-2.5">
+                        <Clock size={16} className="text-brand-cyan shrink-0 mt-0.5" />
+                        <span>4 months program</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <PlayCircle size={16} className="text-brand-cyan shrink-0 mt-0.5" />
+                        <span>Self paced learning with the recordings</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <BookOpen size={16} className="text-brand-cyan shrink-0 mt-0.5" />
+                        <span>hands on project</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <Briefcase size={16} className="text-brand-cyan shrink-0 mt-0.5" />
+                        <span>Placement and internship support provided</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <Award size={16} className="text-brand-cyan shrink-0 mt-0.5" />
+                        <span>Certificate will be provided</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* CTA & Pricing on the Popout */}
+                  <div className="pt-4 border-t border-white/10 flex items-center justify-between mt-auto">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Offer Price</span>
+                      <span className="text-xl font-black text-brand-cyan">₹7,500</span>
+                    </div>
+                    <a 
+                      href={`https://wa.me/917204398855?text=${encodeURIComponent(`Hey BrillneX 👋\n\nI'm interested in the ${course.title} program and would like to know more about:\n• Course structure\n• Internship opportunities\n• Fees\n• Upcoming batches\n• Placement support\n\nPlease share the details.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-brand-cyan hover:to-brand-blue text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition-all shadow-lg shadow-brand-blue/30 active:scale-95"
+                    >
+                      <MessageSquare className="h-4 w-4" />
+                      <span>Talk to Mentor</span>
+                    </a>
+                  </div>
+                </div>
+
                 {/* Card Header area */}
                 <div className="p-6 pb-5 border-b border-gray-100 bg-white/40 backdrop-blur-sm">
                   <div className="flex justify-between items-start mb-4">
