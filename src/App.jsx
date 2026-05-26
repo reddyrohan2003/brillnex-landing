@@ -5,6 +5,7 @@ import {
   GraduationCap, TrendingUp
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { CinematicFooter } from './CinematicFooter';
 
 function FloatingPaths({ position }) {
   const paths = Array.from({ length: 36 }, (_, i) => ({
@@ -673,101 +674,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#0a0a0a] border-t border-white/10 pt-16 pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-12">
-            
-            <div className="lg:col-span-2">
-              <a href="#hero" className="mb-6 inline-block cursor-pointer group">
-                <div className="flex flex-col items-start justify-center">
-                  <div className="text-3xl font-black tracking-widest text-white leading-none group-hover:text-red-500 transition-colors">
-                    BRILLNE<span className="text-red-600 group-hover:text-white transition-colors">X</span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-1.5 opacity-90">
-                    <div className="h-px w-4 bg-red-600 group-hover:bg-white transition-colors"></div>
-                    <span className="text-[0.65rem] font-bold tracking-[0.3em] text-gray-400 uppercase group-hover:text-gray-300 transition-colors">Technologies</span>
-                    <div className="h-px w-4 bg-red-600 group-hover:bg-white transition-colors"></div>
-                  </div>
-                </div>
-              </a>
-              <p className="text-gray-400 mb-6 max-w-sm">
-                Empowering professionals globally to upskill, transition careers, and achieve their maximum potential through high-quality online education with Real Projects & Real Skills.
-              </p>
-              <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Admissions & Inquiries</div>
-              <div className="space-y-2 text-sm font-bold text-gray-300">
-                <div>WhatsApp: <a href="https://wa.me/917204398855" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:underline">7204398855</a></div>
-                <div>Email: <a href="mailto:Brillnextechnologies@gmail.com" className="text-red-500 hover:underline">Brillnextechnologies@gmail.com</a></div>
-                <div>Instagram: <a href="https://instagram.com/brillnex_technologies" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:underline">@brillnex_technologies</a></div>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Programs</h4>
-              <ul className="space-y-3 text-sm font-medium text-gray-400">
-                <li><a href="#" className="hover:text-red-500 transition-colors">Data Science</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Machine Learning</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Software Engineering</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Cloud Computing</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Cybersecurity</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Brillnex</h4>
-              <ul className="space-y-3 text-sm font-medium text-gray-400">
-                <li><a href="#" className="hover:text-red-500 transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Placement Statistics</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Hire from Us</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Legal</h4>
-              <ul className="space-y-3 text-sm font-medium text-gray-400">
-                <li><a href="#" className="hover:text-red-500 transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Refund Policy</a></li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-500 font-medium">
-              &copy; {new Date().getFullYear()} Brillnex Technologies. All rights reserved.
-            </p>
-            <div className="flex space-x-4">
-              {/* Social icons */}
-              <a 
-                href="https://linkedin.com/company/brillnex" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center gap-2 bg-[#0077b5]/10 border border-[#0077b5]/30 hover:bg-[#0077b5]/20 hover:border-[#0077b5] text-[#0077b5] px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-[#0077b5]/5"
-                aria-label="LinkedIn"
-              >
-                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-                <span>LinkedIn</span>
-              </a>
-              <a 
-                href="https://twitter.com/brillnex" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/30 text-gray-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md"
-                aria-label="Twitter"
-              >
-                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-                <span>Twitter</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Cinematic Footer */}
+      <CinematicFooter />
     </div>
   );
 }
