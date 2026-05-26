@@ -563,9 +563,17 @@ export default function App() {
                       <p className="text-xs text-gray-400 font-semibold mb-1">Starting at</p>
                       <p className="text-xl font-extrabold text-slate-900">{course.price}</p>
                     </div>
-                    <button className="bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white px-5 py-2.5 rounded-lg font-bold transition-colors">
-                      View Details
-                    </button>
+                    <a
+                      href={`https://wa.me/917204398855?text=${encodeURIComponent(`Hey BrillneX 👋\n\nI'm interested in the ${course.title} program and would like to know more about:\n• Course structure\n• Internship opportunities\n• Fees\n• Upcoming batches\n• Placement support\n\nPlease share the details.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2 shadow-md shadow-red-600/20 hover:scale-105 active:scale-95"
+                    >
+                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.48 4.905 1.481 5.382 0 9.762-4.38 9.766-9.764.002-2.607-1.011-5.059-2.855-6.905C16.57 2.122 14.12 1.1 11.517 1.1c-5.385 0-9.765 4.38-9.769 9.764-.002 1.856.5 3.666 1.453 5.291L2.164 22l6.096-1.599z"/>
+                      </svg>
+                      Know More
+                    </a>
                   </div>
                 </div>
               </div>
