@@ -241,13 +241,13 @@ export default function App() {
                 className="h-14 w-14 rounded-xl object-cover bg-white p-0.5 shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-all duration-300"
               />
               <div className="flex flex-col items-start justify-center">
-                <div className="text-2xl md:text-3xl font-black tracking-widest text-white leading-none group-hover:text-brand-blue transition-colors">
-                  BRILLNE<span className="text-brand-blue group-hover:text-white transition-colors">X</span>
+                <div className="text-2xl md:text-3xl font-black tracking-widest text-white leading-none transition-colors group-hover:text-slate-200">
+                  BRILLNE<span className="text-brand-blue transition-colors">X</span>
                 </div>
                 <div className="flex items-center gap-2 mt-1.5 opacity-90">
-                  <div className="h-px w-3 md:w-4 bg-brand-blue group-hover:bg-white transition-colors"></div>
+                  <div className="h-px w-3 md:w-4 bg-brand-blue transition-colors"></div>
                   <span className="text-[0.55rem] md:text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase group-hover:text-gray-300 transition-colors">Technologies</span>
-                  <div className="h-px w-3 md:w-4 bg-brand-blue group-hover:bg-white transition-colors"></div>
+                  <div className="h-px w-3 md:w-4 bg-brand-blue transition-colors"></div>
                 </div>
               </div>
             </a>
