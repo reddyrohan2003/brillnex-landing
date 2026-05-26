@@ -617,8 +617,14 @@ export default function App() {
       </section>
 
       {/* Why Choose Brillnex Section (From Instagram) */}
-      <section id="why-choose-us" className="py-20 bg-gradient-to-b from-[#F1F5F9] to-[#EBF2FF] border-t border-gray-200/50 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="why-choose-us" className="py-20 bg-gradient-to-br from-[#F8FAFC] via-[#F1F5F9] to-[#EBF2FF] border-t border-gray-200/40 scroll-mt-20 relative overflow-hidden">
+        {/* Soft, premium ambient radial glows for sophisticated tech feel */}
+        <div className="absolute inset-0 z-0 opacity-55 pointer-events-none">
+          <div className="absolute top-0 right-1/4 w-[35rem] h-[35rem] bg-gradient-to-br from-[#1E88FF]/10 to-[#00C2FF]/5 rounded-full blur-[110px]" />
+          <div className="absolute bottom-0 left-1/4 w-[35rem] h-[35rem] bg-gradient-to-tr from-[#00C2FF]/10 to-[#1E88FF]/5 rounded-full blur-[110px]" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-brand-blue text-xs font-black uppercase tracking-widest block mb-3">LEARN. BUILD. SUCCEED.</span>
