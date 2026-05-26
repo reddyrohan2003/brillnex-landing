@@ -506,12 +506,12 @@ export default function App() {
               { title: "EXPERT MENTORSHIP", desc: "1-on-1 Personal Advice", icon: <Users className="text-brand-cyan" size={28} /> },
               { title: "INTERNSHIP SUPPORT", desc: "Guaranteed Placement Paths", icon: <Briefcase className="text-brand-cyan" size={28} /> },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-brand-blue/30 hover:scale-[1.03] hover:bg-white/[0.07]">
-                <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-4 border border-brand-blue/20">
+              <div key={idx} className="group bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) hover:border-brand-cyan/80 hover:scale-[1.08] hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white/[0.08] hover:to-brand-blue/[0.12] hover:shadow-[0_12px_40px_rgba(30,136,255,0.22)] cursor-default">
+                <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-4 border border-brand-blue/20 group-hover:scale-110 group-hover:border-brand-cyan/40 transition-all duration-300">
                   {item.icon}
                 </div>
-                <h4 className="text-xs font-black tracking-wider text-white mb-2 uppercase">{item.title}</h4>
-                <p className="text-[10px] text-gray-500 font-semibold">{item.desc}</p>
+                <h4 className="text-xs font-black tracking-wider text-white mb-2 uppercase group-hover:text-brand-cyan transition-colors duration-300">{item.title}</h4>
+                <p className="text-[10px] text-gray-500 font-semibold group-hover:text-gray-400 transition-colors duration-300">{item.desc}</p>
               </div>
             ))}
           </div>
