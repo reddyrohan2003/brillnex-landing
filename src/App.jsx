@@ -236,7 +236,7 @@ export default function App() {
             {/* Logo */}
             <a href="#hero" className="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
               <img
-                src="/logo.jpg"
+                src="/logo.png"
                 alt="Brillnex Logo"
                 className="h-14 w-14 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow duration-300"
               />
@@ -410,7 +410,7 @@ export default function App() {
               />
               {/* Animated Logo */}
               <motion.img
-                src="/logo.jpg"
+                src="/logo.png"
                 alt="Brillnex Technologies"
                 className="relative z-10 w-72 h-72 md:w-80 md:h-80 object-contain rounded-3xl shadow-2xl shadow-blue-500/20"
                 initial={{ opacity: 0, scale: 0.8, y: 30 }}
