@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { 
   Search, Menu, X, ChevronRight, Clock, Award, Briefcase, 
   CheckCircle, PlayCircle, Star, ArrowRight, BookOpen, Users,
@@ -52,6 +52,59 @@ function FloatingPaths({ position }) {
     </div>
   );
 }
+
+function NavHeader() {
+  const [position, setPosition] = useState({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
+
+  return (
+    <ul
+      className="relative mx-auto flex w-fit rounded-full border border-red-500/40 bg-black/80 p-1 backdrop-blur-md shadow-lg shadow-red-950/10"
+      onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
+    >
+      <Tab setPosition={setPosition} href="#courses">Programs</Tab>
+      <Tab setPosition={setPosition} href="#what-we-offer">What We Offer</Tab>
+      <Tab setPosition={setPosition} href="#why-choose-us">Why Choose Us</Tab>
+      <Tab setPosition={setPosition} href="#outcomes">Outcomes</Tab>
+
+      <Cursor position={position} />
+    </ul>
+  );
+}
+
+const Tab = ({ children, setPosition, href }) => {
+  const ref = useRef(null);
+  return (
+    <li
+      ref={ref}
+      onMouseEnter={() => {
+        if (!ref.current) return;
+
+        const { width } = ref.current.getBoundingClientRect();
+        setPosition({
+          width,
+          opacity: 1,
+          left: ref.current.offsetLeft,
+        });
+      }}
+      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs font-bold uppercase text-white mix-blend-difference md:px-5 md:py-2 md:text-sm select-none"
+    >
+      <a href={href} className="block w-full h-full">{children}</a>
+    </li>
+  );
+};
+
+const Cursor = ({ position }) => {
+  return (
+    <motion.li
+      animate={position}
+      className="absolute z-0 top-1 bottom-1 rounded-full bg-white shadow-lg shadow-white/10"
+    />
+  );
+};
 
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -191,20 +244,9 @@ export default function App() {
               </div>
             </div>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex space-x-8 items-center">
-              <a href="#courses" className="text-sm font-semibold text-gray-300 hover:text-red-500 transition-colors flex items-center gap-1">
-                Courses <ChevronRight size={14} className="rotate-90 text-gray-500" />
-              </a>
-              <a href="#universities" className="text-sm font-semibold text-gray-300 hover:text-red-500 transition-colors">
-                Universities
-              </a>
-              <a href="#outcomes" className="text-sm font-semibold text-gray-300 hover:text-red-500 transition-colors">
-                Career Outcomes
-              </a>
-              <a href="#corporate" className="text-sm font-semibold text-gray-300 hover:text-red-500 transition-colors">
-                For Enterprise
-              </a>
+            {/* Desktop Nav with Sliding Tabs */}
+            <nav className="hidden md:block">
+              <NavHeader />
             </nav>
 
             {/* Desktop CTAs */}
@@ -364,7 +406,7 @@ export default function App() {
       </section>
 
       {/* What We Offer Section (From Instagram) */}
-      <section className="bg-[#0a0a0a] text-white py-20 relative overflow-hidden">
+      <section id="what-we-offer" className="bg-[#0a0a0a] text-white py-20 relative overflow-hidden scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
           <span className="text-red-500 text-xs font-black uppercase tracking-widest block mb-3">WELCOME TO BRILLNEX TECHNOLOGIES</span>
@@ -523,7 +565,7 @@ export default function App() {
       </section>
 
       {/* Why Choose Brillnex Section (From Instagram) */}
-      <section className="py-20 bg-white border-t border-gray-200">
+      <section id="why-choose-us" className="py-20 bg-white border-t border-gray-200 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
