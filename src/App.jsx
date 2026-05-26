@@ -238,7 +238,7 @@ export default function App() {
               <img
                 src="/logo.png"
                 alt="Brillnex Logo"
-                className="h-14 w-14 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow duration-300"
+                className="h-14 w-14 rounded-xl object-cover bg-white p-0.5 shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-all duration-300"
               />
               <div className="flex flex-col items-start justify-center">
                 <div className="text-2xl md:text-3xl font-black tracking-widest text-white leading-none group-hover:text-brand-cyan transition-colors">
@@ -343,7 +343,7 @@ export default function App() {
                           stiffness: 150,
                           damping: 25,
                         }}
-                        className={`inline-block ${word === "Succeed." ? "text-brand-cyan" : "text-slate-900"}`}
+                        className={`inline-block ${word === "Succeed." ? "text-brand-blue" : "text-slate-900"}`}
                       >
                         {letter}
                       </motion.span>
@@ -408,11 +408,9 @@ export default function App() {
                   delay: 1,
                 }}
               />
-              {/* Animated Logo */}
-              <motion.img
-                src="/logo.png"
-                alt="Brillnex Technologies"
-                className="relative z-10 w-72 h-72 md:w-80 md:h-80 object-contain rounded-3xl shadow-2xl shadow-blue-500/20"
+              {/* Animated Container for Logo */}
+              <motion.div
+                className="relative z-10 p-6 rounded-[2rem] bg-gradient-to-br from-white/80 to-gray-50/50 border border-gray-100/50 backdrop-blur-lg shadow-2xl shadow-blue-500/10 flex items-center justify-center"
                 initial={{ opacity: 0, scale: 0.8, y: 30 }}
                 animate={{
                   opacity: 1,
@@ -424,7 +422,13 @@ export default function App() {
                   scale: { duration: 1, delay: 0.5, type: 'spring', stiffness: 100 },
                   y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.5 },
                 }}
-              />
+              >
+                <img
+                  src="/logo.png"
+                  alt="Brillnex Technologies"
+                  className="w-60 h-60 md:w-68 md:h-68 object-contain mix-blend-multiply filter drop-shadow(0 15px 25px rgba(30,136,255,0.15))"
+                />
+              </motion.div>
             </div>
 
           </div>
@@ -616,7 +620,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-cyan text-xs font-black uppercase tracking-widest block mb-3">LEARN. BUILD. SUCCEED.</span>
+            <span className="text-brand-blue text-xs font-black uppercase tracking-widest block mb-3">LEARN. BUILD. SUCCEED.</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Why Choose Brillnex?</h2>
             <p className="text-lg text-gray-600 font-medium">We don't just teach technology—we empower you to master it with hands-on experience and professional support.</p>
           </div>
