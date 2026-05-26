@@ -111,21 +111,21 @@ const Cursor = ({ position }) => {
 
 const companies = [
   { name: "Microsoft", className: "font-serif text-slate-800 font-black text-xl" },
-  { name: "IBM", className: "tracking-tighter text-blue-600 font-extrabold text-xl" },
+  { name: "Postman", className: "font-sans text-orange-500 font-extrabold tracking-tight text-xl" },
   { name: "amazon", className: "tracking-tight text-orange-500 font-bold text-xl" },
+  { name: "Zerodha", className: "font-sans text-blue-600 font-black tracking-tight text-xl" },
   { name: "Google", className: "italic text-slate-900 font-bold text-xl" },
-  { name: "Oracle", className: "text-slate-700 font-black text-xl" },
-  { name: "Accenture", className: "text-indigo-600 font-bold text-xl" },
-  { name: "Meta", className: "text-blue-500 font-black tracking-tight text-xl" },
-  { name: "Apple", className: "text-slate-900 font-medium text-xl" },
-  { name: "NVIDIA", className: "font-mono text-emerald-600 font-black tracking-widest uppercase text-lg" },
+  { name: "Groww", className: "font-sans text-emerald-500 font-black tracking-tight text-xl" },
   { name: "Razorpay", className: "text-blue-600 font-extrabold italic text-xl" },
-  { name: "CRED", className: "font-mono text-slate-900 font-bold tracking-[0.2em] text-lg" },
+  { name: "inVideo", className: "font-mono text-indigo-500 font-extrabold tracking-wide text-xl" },
   { name: "zepto", className: "text-purple-600 font-black italic text-xl" },
-  { name: "swiggy", className: "text-orange-600 font-extrabold text-xl" },
+  { name: "Simpl", className: "font-sans text-emerald-400 font-black italic text-xl" },
+  { name: "CRED", className: "font-mono text-slate-900 font-bold tracking-[0.2em] text-lg" },
+  { name: "dunzo", className: "font-mono text-green-600 font-black tracking-widest uppercase text-lg" },
+  { name: "Hasura", className: "font-sans text-slate-900 font-bold tracking-tight text-xl" },
   { name: "zomato", className: "font-serif text-red-600 font-black text-xl" },
-  { name: "PhonePe", className: "text-violet-600 font-black text-xl" },
-  { name: "Flipkart", className: "text-blue-500 font-black text-xl" }
+  { name: "Ola", className: "font-sans text-slate-800 font-black uppercase tracking-wider text-xl" },
+  { name: "meesho", className: "font-serif text-pink-600 font-black italic text-xl" }
 ];
 
 export default function App() {
