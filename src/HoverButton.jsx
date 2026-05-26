@@ -33,10 +33,15 @@ const HoverButton = React.forwardRef(
         onPointerEnter={() => setHovered(true)}
         onPointerLeave={() => setHovered(false)}
         style={{
-          background: hovered ? "#ffffff" : "#1E88FF",
-          color: hovered ? "#1E88FF" : "#ffffff",
-          border: hovered ? "2px solid #1E88FF" : "2px solid transparent",
-          transition: "all 0.3s ease",
+          background: hovered 
+            ? "linear-gradient(135deg, #00C2FF 0%, #1E88FF 100%)" 
+            : "linear-gradient(135deg, #1E88FF 0%, #00C2FF 100%)",
+          color: "#ffffff",
+          boxShadow: hovered 
+            ? "0 8px 25px rgba(30,136,255,0.22)" 
+            : "0 4px 12px rgba(30,136,255,0.08)",
+          transform: hovered ? "translateY(-3px)" : "translateY(0)",
+          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
         {...props}
       >

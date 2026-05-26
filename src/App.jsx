@@ -104,7 +104,7 @@ const Cursor = ({ position }) => {
   return (
     <motion.li
       animate={position}
-      className="absolute z-0 top-1 bottom-1 rounded-full bg-white shadow-lg shadow-white/10"
+      className="absolute z-0 top-1 bottom-1 rounded-full bg-gradient-to-r from-[#1E88FF] to-[#00C2FF] shadow-lg shadow-brand-blue/20"
     />
   );
 };
@@ -230,7 +230,7 @@ export default function App() {
       </div>
 
       {/* Navigation (Dark Theme to match Logo background) */}
-      <header className="bg-[#0a0a0a] border-b border-white/10 sticky top-0 z-50">
+      <header className="bg-[#050816] border-b border-white/10 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
             {/* Logo */}
@@ -283,7 +283,7 @@ export default function App() {
 
         {/* Mobile Nav */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-[#0a0a0a] border-t border-white/10 px-4 pt-2 pb-6 space-y-2 absolute w-full shadow-2xl">
+          <div className="md:hidden bg-[#050816] border-t border-white/10 px-4 pt-2 pb-6 space-y-2 absolute w-full shadow-2xl">
             <a href="#courses" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Courses</a>
             <a href="#what-we-offer" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>What We Offer</a>
             <a href="#why-choose-us" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</a>
@@ -307,7 +307,7 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="bg-white pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden relative border-b border-gray-200 scroll-mt-20">
+      <section id="hero" className="bg-gradient-to-b from-[#F3F7FF] to-[#EEF4FF] pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden relative border-b border-gray-200 scroll-mt-20">
         {/* Animated Background Paths */}
         <div className="absolute inset-0 z-0 opacity-70">
           <FloatingPaths position={1} />
@@ -329,7 +329,7 @@ export default function App() {
               </div>
               
               {/* Dynamic Animated Letters Headline */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0B1220] tracking-tight leading-[1.1] mb-6">
                 {["Learn.", "Build.", "Succeed."].map((word, wordIndex) => (
                   <span key={wordIndex} className="inline-block mr-4 last:mr-0">
                     {word.split("").map((letter, letterIndex) => (
@@ -343,7 +343,7 @@ export default function App() {
                           stiffness: 150,
                           damping: 25,
                         }}
-                        className={`inline-block ${word === "Succeed." ? "text-brand-blue" : "text-slate-900"}`}
+                        className={`inline-block ${word === "Succeed." ? "text-brand-blue" : "text-[#0B1220]"}`}
                       >
                         {letter}
                       </motion.span>
@@ -357,7 +357,7 @@ export default function App() {
               </p>
               
               {/* High-Conversion Form inside Hero */}
-              <div className="bg-white border border-gray-200 p-2 rounded-xl shadow-md flex flex-col sm:flex-row gap-2 max-w-lg relative z-20">
+              <div className="bg-white border border-[rgba(30,136,255,0.15)] p-2 rounded-xl shadow-[0_8px_30px_rgba(30,136,255,0.08)] flex flex-col sm:flex-row gap-2 max-w-lg relative z-20">
                 <div className="flex-1 relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                   <input 
@@ -366,7 +366,7 @@ export default function App() {
                     className="w-full pl-10 pr-4 py-3 rounded-lg bg-gray-50 border-transparent focus:bg-white focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-slate-900 placeholder-gray-500"
                   />
                 </div>
-                <button className="bg-brand-blue hover:bg-brand-blue/90 text-white px-8 py-3 rounded-lg font-bold shadow-lg shadow-brand-blue/30 transition-all whitespace-nowrap">
+                <button className="bg-gradient-to-r from-[#1E88FF] to-[#00C2FF] hover:from-[#00C2FF] hover:to-[#1E88FF] text-white px-8 py-3 rounded-lg font-bold shadow-lg shadow-brand-blue/20 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap">
                   Explore Programs
                 </button>
               </div>
@@ -500,7 +500,7 @@ export default function App() {
               href="https://wa.me/917204398855" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold px-6 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-lg shadow-brand-blue/20 transition-all hover:scale-105 active:scale-95 border border-brand-blue/20"
+              className="bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-brand-cyan hover:to-brand-blue text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center gap-2 shadow-lg shadow-brand-blue/20 hover:shadow-[0_8px_25px_rgba(30,136,255,0.25)] transition-all duration-300 hover:-translate-y-0.5 active:scale-95 border border-transparent"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.48 4.905 1.481 5.382 0 9.762-4.38 9.766-9.764.002-2.607-1.011-5.059-2.855-6.905C16.57 2.122 14.12 1.1 11.517 1.1c-5.385 0-9.765 4.38-9.769 9.764-.002 1.856.5 3.666 1.453 5.291L2.164 22l6.096-1.599c-1.54 1.055-1.574.966-.613.753z"/>
@@ -513,7 +513,7 @@ export default function App() {
       </section>
 
       {/* Main Course Section */}
-      <section id="courses" className="py-20 bg-gray-50">
+      <section id="courses" className="py-20 bg-[#F3F7FF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -545,7 +545,7 @@ export default function App() {
           {/* Course Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courseData[activeTab].map((course) => (
-              <div key={course.id} className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full">
+              <div key={course.id} className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-[0_0_25px_rgba(30,136,255,0.18)] hover:-translate-y-[3px] hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full">
                 
                 {/* Card Header area */}
                 <div className="p-6 pb-5 border-b border-gray-100 bg-gradient-to-br from-white to-gray-50">

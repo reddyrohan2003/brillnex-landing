@@ -78,7 +78,7 @@ const STYLES = `
 
 /* Metallic blue heading glow */
 .bfooter-heading-glow {
-  background: linear-gradient(160deg, #ffffff 0%, #00C2FF 50%, #1E88FF 100%);
+  background: linear-gradient(135deg, #1E88FF, #00C2FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -233,7 +233,7 @@ export function CinematicFooter() {
         style={{ height: "100vh", clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
         <footer className="brillnex-footer-wrapper fixed bottom-0 left-0 flex h-screen w-full flex-col justify-between overflow-hidden"
-          style={{ backgroundColor: "#050816", color: "#f3f4f6" }}
+          style={{ background: "radial-gradient(circle at top, rgba(0,194,255,0.12), transparent 40%), #050816", color: "#f3f4f6" }}
         >
           {/* Blue aurora glow */}
           <div className="bfooter-aurora absolute left-1/2 top-1/2 h-[55vh] w-[75vw] rounded-[50%] blur-[100px] animate-bfooter-breathe pointer-events-none z-0" />
