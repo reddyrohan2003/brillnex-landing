@@ -4,6 +4,54 @@ import {
   CheckCircle, PlayCircle, Star, ArrowRight, BookOpen, Users,
   GraduationCap, TrendingUp
 } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+function FloatingPaths({ position }) {
+  const paths = Array.from({ length: 36 }, (_, i) => ({
+    id: i,
+    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
+      380 - i * 5 * position
+    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
+      152 - i * 5 * position
+    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
+      684 - i * 5 * position
+    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
+    color: `rgba(239,68,68,${0.05 + i * 0.015})`,
+    width: 0.5 + i * 0.03,
+  }));
+
+  return (
+    <div className="absolute inset-0 pointer-events-none">
+      <svg
+        className="w-full h-full text-red-600/10 dark:text-white/5"
+        viewBox="0 0 696 316"
+        fill="none"
+      >
+        <title>Background Paths</title>
+        {paths.map((path) => (
+          <motion.path
+            key={path.id}
+            d={path.d}
+            stroke="currentColor"
+            strokeWidth={path.width}
+            strokeOpacity={0.1 + path.id * 0.015}
+            initial={{ pathLength: 0.3, opacity: 0.6 }}
+            animate={{
+              pathLength: 1,
+              opacity: [0.3, 0.6, 0.3],
+              pathOffset: [0, 1, 0],
+            }}
+            transition={{
+              duration: 20 + Math.random() * 10,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
 
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -194,23 +242,56 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="bg-white pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden relative border-b border-gray-200">
+        {/* Animated Background Paths */}
+        <div className="absolute inset-0 z-0 opacity-70">
+          <FloatingPaths position={1} />
+          <FloatingPaths position={-1} />
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             
             {/* Hero Content */}
-            <div className="max-w-2xl">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5 }}
+              className="max-w-2xl relative z-10"
+            >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-700 text-sm font-bold tracking-wide mb-6">
                 <TrendingUp size={16} /> We Are Officially Launched!
               </div>
+              
+              {/* Dynamic Animated Letters Headline */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
-                Learn. Build. <br/><span className="text-red-600">Succeed.</span>
+                {["Learn.", "Build.", "Succeed."].map((word, wordIndex) => (
+                  <span key={wordIndex} className="inline-block mr-4 last:mr-0">
+                    {word.split("").map((letter, letterIndex) => (
+                      <motion.span
+                        key={`${wordIndex}-${letterIndex}`}
+                        initial={{ y: 80, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{
+                          delay: wordIndex * 0.15 + letterIndex * 0.03,
+                          type: "spring",
+                          stiffness: 150,
+                          damping: 25,
+                        }}
+                        className={`inline-block ${word === "Succeed." ? "text-red-600" : "text-slate-900"}`}
+                      >
+                        {letter}
+                      </motion.span>
+                    ))}
+                  </span>
+                ))}
               </h1>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-lg">
+              
+              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-lg font-medium">
                 Industry-ready tech education dedicated to delivering excellence with <strong>Real Projects</strong> & <strong>Real Skills</strong>.
               </p>
               
               {/* High-Conversion Form inside Hero */}
-              <div className="bg-white border border-gray-200 p-2 rounded-xl shadow-md flex flex-col sm:flex-row gap-2 max-w-lg">
+              <div className="bg-white border border-gray-200 p-2 rounded-xl shadow-md flex flex-col sm:flex-row gap-2 max-w-lg relative z-20">
                 <div className="flex-1 relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                   <input 
@@ -228,7 +309,7 @@ export default function App() {
                 <div className="flex items-center gap-2"><CheckCircle size={18} className="text-red-600" /> EMI Options Available</div>
                 <div className="flex items-center gap-2"><CheckCircle size={18} className="text-red-600" /> 1-on-1 Mentorship</div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Hero Image/Visual */}
             <div className="relative hidden lg:block">
