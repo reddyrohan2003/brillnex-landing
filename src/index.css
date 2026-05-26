@@ -25,13 +25,13 @@
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #e11d48;
+    background: #1E88FF;
   }
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 20px rgba(225, 29, 72, 0.4);
+    text-shadow: 0 0 20px rgba(30, 136, 255, 0.4);
   }
   
   .glass-dark {
@@ -50,7 +50,7 @@
 
   /* Glowing ambient blobs */
   .bg-radial-glow {
-    background: radial-gradient(circle at center, rgba(225, 29, 72, 0.15) 0%, rgba(225, 29, 72, 0) 70%);
+    background: radial-gradient(circle at center, rgba(30, 136, 255, 0.15) 0%, rgba(30, 136, 255, 0) 70%);
   }
 
   /* Animated background mesh grid */

@@ -8,17 +8,15 @@ export default {
     extend: {
       colors: {
         brand: {
-          50: '#fff1f2',
-          100: '#ffe4e6',
-          200: '#fecdd3',
-          300: '#fda4af',
-          400: '#fb7185',
-          500: '#f43f5e',
-          600: '#e11d48', // Brillnex Corporate Red
-          700: '#be123c',
-          800: '#9f1239',
-          900: '#881337',
-          950: '#4c0519',
+          blue: '#1E88FF',       // Electric Blue
+          cyan: '#00C2FF',       // Cyan Blue
+          dark: '#050816',       // Deep Navy Black
+          slate: '#0B1220',      // Dark Slate
+          card: '#111827',       // Soft Dark
+          textPrimary: '#F8FAFC',// Primary Text
+          textSecondary: '#94A3B8', // Secondary Text
+          border: '#1E293B',     // Soft Blue Gray
+          highlight: '#C7D2FE',  // Silver Blue
         },
         slate: {
           950: '#050506',

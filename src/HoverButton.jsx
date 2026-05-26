@@ -33,9 +33,9 @@ const HoverButton = React.forwardRef(
         onPointerEnter={() => setHovered(true)}
         onPointerLeave={() => setHovered(false)}
         style={{
-          background: hovered ? "#ffffff" : "#dc2626",
-          color: hovered ? "#dc2626" : "#ffffff",
-          border: hovered ? "2px solid #dc2626" : "2px solid transparent",
+          background: hovered ? "#ffffff" : "#1E88FF",
+          color: hovered ? "#1E88FF" : "#ffffff",
+          border: hovered ? "2px solid #1E88FF" : "2px solid transparent",
           transition: "all 0.3s ease",
         }}
         {...props}

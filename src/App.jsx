@@ -19,14 +19,14 @@ function FloatingPaths({ position }) {
     } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
       684 - i * 5 * position
     } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    color: `rgba(239,68,68,${0.05 + i * 0.015})`,
+    color: `rgba(30,136,255,${0.05 + i * 0.015})`,
     width: 0.5 + i * 0.03,
   }));
 
   return (
     <div className="absolute inset-0 pointer-events-none">
       <svg
-        className="w-full h-full overflow-visible text-red-600 dark:text-neutral-900"
+        className="w-full h-full overflow-visible text-brand-blue dark:text-neutral-900"
         viewBox="0 0 696 316"
         fill="none"
       >
@@ -35,7 +35,7 @@ function FloatingPaths({ position }) {
           <motion.path
             key={path.id}
             d={path.d}
-            stroke="#dc2626"
+            stroke="#1E88FF"
             strokeWidth={path.width}
             strokeOpacity={0.12 + path.id * 0.015}
             initial={{ pathLength: 0.3, opacity: 0.6 }}
@@ -65,7 +65,7 @@ function NavHeader() {
 
   return (
     <ul
-      className="relative mx-auto flex w-fit rounded-full border border-red-500/40 bg-black/80 p-1 backdrop-blur-md shadow-lg shadow-red-950/10"
+      className="relative mx-auto flex w-fit rounded-full border border-brand-blue/30 bg-black/80 p-1 backdrop-blur-md shadow-lg shadow-brand-blue/10"
       onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
     >
       <Tab setPosition={setPosition} href="#courses">Programs</Tab>
@@ -222,10 +222,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-900 selection:bg-red-100 selection:text-red-900">
+    <div className="min-h-screen bg-gray-50 font-sans text-gray-900 selection:bg-brand-blue/20 selection:text-brand-blue">
       
       {/* Top Notification Bar */}
-      <div className="bg-red-600 text-white text-xs font-medium py-2 px-4 text-center tracking-wide">
+      <div className="bg-brand-blue text-white text-xs font-medium py-2 px-4 text-center tracking-wide">
         New Batches Starting Soon. <span className="text-white/90 font-bold ml-1 cursor-pointer hover:underline">Claim your Early Bird Scholarship &rarr;</span>
       </div>
 
@@ -241,13 +241,13 @@ export default function App() {
                 className="h-14 w-14 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow duration-300"
               />
               <div className="flex flex-col items-start justify-center">
-                <div className="text-2xl md:text-3xl font-black tracking-widest text-white leading-none group-hover:text-red-500 transition-colors">
-                  BRILLNE<span className="text-red-600 group-hover:text-white transition-colors">X</span>
+                <div className="text-2xl md:text-3xl font-black tracking-widest text-white leading-none group-hover:text-brand-cyan transition-colors">
+                  BRILLNE<span className="text-brand-cyan group-hover:text-white transition-colors">X</span>
                 </div>
                 <div className="flex items-center gap-2 mt-1.5 opacity-90">
-                  <div className="h-px w-3 md:w-4 bg-red-600 group-hover:bg-white transition-colors"></div>
+                  <div className="h-px w-3 md:w-4 bg-brand-cyan group-hover:bg-white transition-colors"></div>
                   <span className="text-[0.55rem] md:text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase group-hover:text-gray-300 transition-colors">Technologies</span>
-                  <div className="h-px w-3 md:w-4 bg-red-600 group-hover:bg-white transition-colors"></div>
+                  <div className="h-px w-3 md:w-4 bg-brand-cyan group-hover:bg-white transition-colors"></div>
                 </div>
               </div>
             </a>
@@ -324,7 +324,7 @@ export default function App() {
               transition={{ duration: 1.5 }}
               className="max-w-2xl relative z-10"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-700 text-sm font-bold tracking-wide mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-bold tracking-wide mb-6">
                 <TrendingUp size={16} /> We Are Officially Launched!
               </div>
               
@@ -343,7 +343,7 @@ export default function App() {
                           stiffness: 150,
                           damping: 25,
                         }}
-                        className={`inline-block ${word === "Succeed." ? "text-red-600" : "text-slate-900"}`}
+                        className={`inline-block ${word === "Succeed." ? "text-brand-cyan" : "text-slate-900"}`}
                       >
                         {letter}
                       </motion.span>
@@ -363,17 +363,17 @@ export default function App() {
                   <input 
                     type="text" 
                     placeholder="Search courses (e.g. AI, DevOps)" 
-                    className="w-full pl-10 pr-4 py-3 rounded-lg bg-gray-50 border-transparent focus:bg-white focus:border-red-500 focus:ring-2 focus:ring-red-200 outline-none transition-all text-slate-900 placeholder-gray-500"
+                    className="w-full pl-10 pr-4 py-3 rounded-lg bg-gray-50 border-transparent focus:bg-white focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-slate-900 placeholder-gray-500"
                   />
                 </div>
-                <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-bold shadow-lg shadow-red-600/30 transition-all whitespace-nowrap">
+                <button className="bg-brand-blue hover:bg-brand-blue/90 text-white px-8 py-3 rounded-lg font-bold shadow-lg shadow-brand-blue/30 transition-all whitespace-nowrap">
                   Explore Programs
                 </button>
               </div>
 
               <div className="mt-8 flex items-center gap-6 text-sm font-medium text-gray-500">
-                <div className="flex items-center gap-2"><CheckCircle size={18} className="text-red-600" /> EMI Options Available</div>
-                <div className="flex items-center gap-2"><CheckCircle size={18} className="text-red-600" /> 1-on-1 Mentorship</div>
+                <div className="flex items-center gap-2"><CheckCircle size={18} className="text-brand-blue" /> EMI Options Available</div>
+                <div className="flex items-center gap-2"><CheckCircle size={18} className="text-brand-blue" /> 1-on-1 Mentorship</div>
               </div>
             </motion.div>
 
@@ -393,10 +393,10 @@ export default function App() {
                   ease: 'easeInOut',
                 }}
               />
-              {/* Secondary red glow ring */}
+              {/* Secondary cyan glow ring */}
               <motion.div
                 className="absolute w-96 h-96 rounded-full opacity-20"
-                style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.4) 0%, rgba(220,38,38,0) 65%)' }}
+                style={{ background: 'radial-gradient(circle, rgba(0,194,255,0.4) 0%, rgba(0,194,255,0) 65%)' }}
                 animate={{
                   scale: [1.1, 0.9, 1.1],
                   opacity: [0.15, 0.3, 0.15],
@@ -440,38 +440,38 @@ export default function App() {
             <div className="text-xl font-extrabold tracking-tighter text-blue-600">IBM</div>
             <div className="text-xl font-bold tracking-tight text-orange-500">amazon</div>
             <div className="text-xl font-bold italic text-slate-900">Google</div>
-            <div className="text-xl font-black text-red-600">Oracle</div>
+            <div className="text-xl font-black text-slate-700">Oracle</div>
             <div className="text-xl font-bold text-indigo-600 hidden md:block">Accenture</div>
           </div>
         </div>
       </section>
 
       {/* What We Offer Section (From Instagram) */}
-      <section id="what-we-offer" className="bg-[#0a0a0a] text-white py-20 relative overflow-hidden scroll-mt-20">
+      <section id="what-we-offer" className="bg-[#050816] text-white py-20 relative overflow-hidden scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
-          <span className="text-red-500 text-xs font-black uppercase tracking-widest block mb-3">WELCOME TO BRILLNEX TECHNOLOGIES</span>
+          <span className="text-brand-cyan text-xs font-black uppercase tracking-widest block mb-3">WELCOME TO BRILLNEX TECHNOLOGIES</span>
           <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tight text-white">
-            We Are Officially <span className="text-red-600">Launched!</span>
+            We Are Officially <span className="text-brand-cyan">Launched!</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base mb-12 leading-relaxed font-medium">
             Brillnex Technologies is an online learning platform dedicated to delivering industry-ready tech education with <strong className="text-white font-black">Real Projects</strong> and <strong className="text-white font-black">Real Skills</strong>.
           </p>
 
           <div className="border-t border-white/10 pt-4 mb-10">
-            <span className="bg-[#0a0a0a] px-6 text-sm font-black tracking-[0.2em] text-gray-500 uppercase">WHAT WE OFFER</span>
+            <span className="bg-[#050816] px-6 text-sm font-black tracking-[0.2em] text-gray-500 uppercase">WHAT WE OFFER</span>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-16">
             {[
-              { title: "ONLINE TECH COURSES", desc: "Expert Vetted Curriculums", icon: <BookOpen className="text-red-500" size={28} /> },
-              { title: "REAL PROJECTS & TRAINING", desc: "100% Hands-on Practice", icon: <Award className="text-red-500" size={28} /> },
-              { title: "INDUSTRY-READY SKILLS", desc: "Directly Marketable", icon: <TrendingUp className="text-red-500" size={28} /> },
-              { title: "EXPERT MENTORSHIP", desc: "1-on-1 Personal Advice", icon: <Users className="text-red-500" size={28} /> },
-              { title: "INTERNSHIP SUPPORT", desc: "Guaranteed Placement Paths", icon: <Briefcase className="text-red-500" size={28} /> },
+              { title: "ONLINE TECH COURSES", desc: "Expert Vetted Curriculums", icon: <BookOpen className="text-brand-cyan" size={28} /> },
+              { title: "REAL PROJECTS & TRAINING", desc: "100% Hands-on Practice", icon: <Award className="text-brand-cyan" size={28} /> },
+              { title: "INDUSTRY-READY SKILLS", desc: "Directly Marketable", icon: <TrendingUp className="text-brand-cyan" size={28} /> },
+              { title: "EXPERT MENTORSHIP", desc: "1-on-1 Personal Advice", icon: <Users className="text-brand-cyan" size={28} /> },
+              { title: "INTERNSHIP SUPPORT", desc: "Guaranteed Placement Paths", icon: <Briefcase className="text-brand-cyan" size={28} /> },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-red-500/30 hover:scale-[1.03] hover:bg-white/[0.07]">
-                <div className="w-14 h-14 bg-red-600/10 rounded-full flex items-center justify-center mb-4 border border-red-500/20">
+              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-brand-blue/30 hover:scale-[1.03] hover:bg-white/[0.07]">
+                <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-4 border border-brand-blue/20">
                   {item.icon}
                 </div>
                 <h4 className="text-xs font-black tracking-wider text-white mb-2 uppercase">{item.title}</h4>
@@ -483,11 +483,11 @@ export default function App() {
           <div className="inline-flex flex-col sm:flex-row items-center gap-6 bg-white/5 border border-white/10 px-8 py-5 rounded-2xl shadow-xl">
             <div className="flex items-center gap-3">
               <span className="flex h-3.5 w-3.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-600"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan/40 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-cyan"></span>
               </span>
               <div className="text-left">
-                <h5 className="font-extrabold text-sm text-red-500 uppercase tracking-widest leading-none">ADMISSIONS OPEN</h5>
+                <h5 className="font-extrabold text-sm text-brand-cyan uppercase tracking-widest leading-none">ADMISSIONS OPEN</h5>
                 <p className="text-[10px] text-gray-400 font-semibold mt-1">Start your tech journey with us today!</p>
               </div>
             </div>
@@ -496,7 +496,7 @@ export default function App() {
               href="https://wa.me/917204398855" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-lg shadow-red-600/20 transition-all hover:scale-105 active:scale-95 border border-red-500/20"
+              className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold px-6 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-lg shadow-brand-blue/20 transition-all hover:scale-105 active:scale-95 border border-brand-blue/20"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.48 4.905 1.481 5.382 0 9.762-4.38 9.766-9.764.002-2.607-1.011-5.059-2.855-6.905C16.57 2.122 14.12 1.1 11.517 1.1c-5.385 0-9.765 4.38-9.769 9.764-.002 1.856.5 3.666 1.453 5.291L2.164 22l6.096-1.599c-1.54 1.055-1.574.966-.613.753z"/>
@@ -541,19 +541,19 @@ export default function App() {
           {/* Course Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courseData[activeTab].map((course) => (
-              <div key={course.id} className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-red-200 transition-all duration-300 flex flex-col h-full">
+              <div key={course.id} className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full">
                 
                 {/* Card Header area */}
                 <div className="p-6 pb-5 border-b border-gray-100 bg-gradient-to-br from-white to-gray-50">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="bg-red-50 text-red-700 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                    <div className="bg-brand-blue/10 text-brand-blue text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                       <Award size={14} /> Certificate
                     </div>
                     {course.bestseller && (
-                      <span className="bg-red-50 text-red-600 text-[10px] uppercase font-black tracking-wider px-2 py-1 rounded">Bestseller</span>
+                      <span className="bg-brand-cyan/10 text-brand-cyan text-[10px] uppercase font-black tracking-wider px-2 py-1 rounded">Bestseller</span>
                     )}
                   </div>
-                  <h3 className="text-xl font-extrabold text-slate-900 leading-snug mb-2 group-hover:text-red-600 transition-colors">
+                  <h3 className="text-xl font-extrabold text-slate-900 leading-snug mb-2 group-hover:text-brand-blue transition-colors">
                     {course.title}
                   </h3>
                   <p className="text-sm font-medium text-gray-500 flex items-center gap-2">
@@ -603,7 +603,7 @@ export default function App() {
           </div>
 
           <div className="mt-12 text-center">
-            <button className="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700 transition-colors group">
+            <button className="inline-flex items-center gap-2 text-brand-blue font-bold hover:text-brand-blue/80 transition-colors group">
               View All Programs <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
@@ -616,22 +616,22 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-red-600 text-xs font-black uppercase tracking-widest block mb-3">LEARN. BUILD. SUCCEED.</span>
+            <span className="text-brand-cyan text-xs font-black uppercase tracking-widest block mb-3">LEARN. BUILD. SUCCEED.</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Why Choose Brillnex?</h2>
             <p className="text-lg text-gray-600 font-medium">We don't just teach technology—we empower you to master it with hands-on experience and professional support.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Real Projects", desc: "Work on real-time projects and build an industry-grade portfolio.", icon: <BookOpen className="text-red-600" size={24} /> },
-              { title: "Expert Trainers", desc: "Learn direct from experienced industry software engineers and tech professionals.", icon: <Users className="text-red-600" size={24} /> },
-              { title: "Practical Learning", desc: "100% practical, hands-on application to make sure you retain what you build.", icon: <Award className="text-red-600" size={24} /> },
-              { title: "Career Support", desc: "Dedicated career coaching, resume workshops, and active mock interviews.", icon: <Briefcase className="text-red-600" size={24} /> },
-              { title: "Flexible Learning", desc: "Learn at your own pace, anytime, with life-time access to cohort archives.", icon: <Clock className="text-red-600" size={24} /> },
-              { title: "Certificate", desc: "Receive a verified certificate of completion recognized by our hiring networks.", icon: <CheckCircle className="text-red-600" size={24} /> },
+              { title: "Real Projects", desc: "Work on real-time projects and build an industry-grade portfolio.", icon: <BookOpen className="text-brand-blue" size={24} /> },
+              { title: "Expert Trainers", desc: "Learn direct from experienced industry software engineers and tech professionals.", icon: <Users className="text-brand-blue" size={24} /> },
+              { title: "Practical Learning", desc: "100% practical, hands-on application to make sure you retain what you build.", icon: <Award className="text-brand-blue" size={24} /> },
+              { title: "Career Support", desc: "Dedicated career coaching, resume workshops, and active mock interviews.", icon: <Briefcase className="text-brand-blue" size={24} /> },
+              { title: "Flexible Learning", desc: "Learn at your own pace, anytime, with life-time access to cohort archives.", icon: <Clock className="text-brand-blue" size={24} /> },
+              { title: "Certificate", desc: "Receive a verified certificate of completion recognized by our hiring networks.", icon: <CheckCircle className="text-brand-blue" size={24} /> },
             ].map((usp, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-100 p-8 rounded-2xl transition-all duration-300 hover:shadow-xl hover:border-red-200 hover:bg-white flex gap-4">
-                <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center shrink-0 border border-red-100">
+              <div key={idx} className="bg-gray-50 border border-gray-100 p-8 rounded-2xl transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 hover:bg-white flex gap-4">
+                <div className="w-12 h-12 bg-brand-blue/10 rounded-xl flex items-center justify-center shrink-0 border border-brand-blue/20">
                   {usp.icon}
                 </div>
                 <div>
@@ -646,11 +646,11 @@ export default function App() {
       </section>
 
       {/* Dark Theme Section: Outcomes */}
-      <section id="outcomes" className="bg-[#0a0a0a] py-24 relative overflow-hidden">
+      <section id="outcomes" className="bg-[#050816] py-24 relative overflow-hidden">
         {/* Subtle decorative background */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-red-600 rounded-full blur-[120px] opacity-10"></div>
-          <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-red-800 rounded-full blur-[120px] opacity-10"></div>
+          <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-brand-blue rounded-full blur-[120px] opacity-10"></div>
+          <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-brand-cyan rounded-full blur-[120px] opacity-10"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -658,7 +658,7 @@ export default function App() {
             
             <div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                Real Outcomes. <br/><span className="text-red-500">Real Career Impact.</span>
+                Real Outcomes. <br/><span className="text-brand-cyan">Real Career Impact.</span>
               </h2>
               <p className="text-lg text-slate-400 mb-8 leading-relaxed">
                 Our graduates don't just learn; they get hired. With our dedicated placement cell and industry-aligned curriculum, transitioning your career is a structured process, not a gamble.
@@ -671,12 +671,12 @@ export default function App() {
                   "Direct referrals to our 500+ hiring partners"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-slate-300 font-medium">
-                    <CheckCircle size={24} className="text-red-500 flex-shrink-0" /> {item}
+                    <CheckCircle size={24} className="text-brand-cyan flex-shrink-0" /> {item}
                   </li>
                 ))}
               </ul>
 
-              <button className="bg-red-600 hover:bg-red-500 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-red-600/30 transition-all">
+              <button className="bg-brand-blue hover:bg-brand-blue/90 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-brand-blue/30 transition-all">
                 Download Placement Report
               </button>
             </div>
@@ -684,17 +684,17 @@ export default function App() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Outcome Stat Cards */}
               <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
-                <Users size={32} className="text-red-500 mb-4" />
+                <Users size={32} className="text-brand-cyan mb-4" />
                 <div className="text-4xl font-black text-white mb-2">35k+</div>
                 <div className="text-sm font-semibold text-slate-400">Learners Placed</div>
               </div>
               <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
-                <TrendingUp size={32} className="text-red-500 mb-4" />
+                <TrendingUp size={32} className="text-brand-cyan mb-4" />
                 <div className="text-4xl font-black text-white mb-2">57%</div>
                 <div className="text-sm font-semibold text-slate-400">Average Salary Hike</div>
               </div>
               <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm sm:col-span-2">
-                <Award size={32} className="text-red-500 mb-4" />
+                <Award size={32} className="text-brand-cyan mb-4" />
                 <div className="text-4xl font-black text-white mb-2">₹32 LPA</div>
                 <div className="text-sm font-semibold text-slate-400">Highest Salary Offered (Software Engineering)</div>
               </div>
