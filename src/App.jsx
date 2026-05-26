@@ -134,109 +134,19 @@ export default function App() {
 
   const courseData = {
     software: [
-      {
-        id: 1,
-        title: "Full Stack Development",
-        university: "MERN Stack & More",
-        duration: "6 Months",
-        format: "Online Interactive",
-        price: "₹99,000",
-        rating: 4.9,
-        reviews: "12.4k",
-        bestseller: true
-      },
-      {
-        id: 2,
-        title: "Web Development",
-        university: "Frontend & Backend",
-        duration: "4 Months",
-        format: "Online Interactive",
-        price: "₹65,000",
-        rating: 4.8,
-        reviews: "8.2k",
-        bestseller: false
-      },
-      {
-        id: 3,
-        title: "Java Programming",
-        university: "Core Java to Advanced",
-        duration: "5 Months",
-        format: "Weekend Live Classes",
-        price: "₹75,000",
-        rating: 4.7,
-        reviews: "5.1k",
-        bestseller: false
-      },
-      {
-        id: 4,
-        title: "C++ Programming",
-        university: "From Basics to Advanced",
-        duration: "4 Months",
-        format: "Self-paced + Live Labs",
-        price: "₹60,000",
-        rating: 4.8,
-        reviews: "4.3k",
-        bestseller: false
-      }
+      { id: 1, title: "Full Stack Development", university: "MERN Stack & More", duration: "4 Months", format: "Online Interactive", bestseller: true },
+      { id: 2, title: "Web Development", university: "Frontend & Backend", duration: "4 Months", format: "Online Interactive", bestseller: false },
+      { id: 3, title: "Java Programming", university: "Core Java to Advanced", duration: "4 Months", format: "Weekend Live Classes", bestseller: false },
+      { id: 4, title: "C++ Programming", university: "From Basics to Advanced", duration: "4 Months", format: "Self-paced + Live Labs", bestseller: false }
     ],
     data: [
-      {
-        id: 5,
-        title: "Python Programming",
-        university: "From Basics to Advanced",
-        duration: "3 Months",
-        format: "Online Interactive",
-        price: "₹45,000",
-        rating: 4.9,
-        reviews: "15.8k",
-        bestseller: true
-      },
-      {
-        id: 6,
-        title: "SQL Database Masterclass",
-        university: "Master Databases",
-        duration: "3 Months",
-        format: "Self-paced + Live Labs",
-        price: "₹35,000",
-        rating: 4.6,
-        reviews: "3.2k",
-        bestseller: false
-      },
-      {
-        id: 7,
-        title: "Data Analysis",
-        university: "Analyze Data, Drive Insights",
-        duration: "4 Months",
-        format: "Online Interactive",
-        price: "₹55,000",
-        rating: 4.8,
-        reviews: "2.1k",
-        bestseller: true
-      }
+      { id: 5, title: "Python Programming", university: "From Basics to Advanced", duration: "4 Months", format: "Online Interactive", bestseller: true },
+      { id: 6, title: "SQL Database Masterclass", university: "Master Databases", duration: "4 Months", format: "Self-paced + Live Labs", bestseller: false },
+      { id: 7, title: "Data Analysis", university: "Analyze Data, Drive Insights", duration: "4 Months", format: "Online Interactive", bestseller: true }
     ],
     ai: [
-      {
-        id: 8,
-        title: "Cyber Security",
-        university: "Secure Systems, Build Future",
-        duration: "6 Months",
-        format: "Live Workshops",
-        price: "₹85,000",
-        rating: 5.0,
-        reviews: "1.9k",
-        bestseller: true
-      },
-      {
-        id: 9,
-        title: "Applied Generative AI & Prompt Engineering",
-        university: "Silicon Valley Tech Academy",
-        duration: "3 Months",
-        format: "Live Workshops",
-        price: "₹45,000",
-        rating: 5.0,
-        reviews: "2.1k",
-        bestseller: true
-      }
+      { id: 8, title: "Cyber Security", university: "Secure Systems, Build Future", duration: "4 Months", format: "Live Workshops", bestseller: true },
+      { id: 9, title: "Applied Generative AI & Prompt Engineering", university: "Silicon Valley Tech Academy", duration: "4 Months", format: "Live Workshops", bestseller: true }
     ]
   };
 
@@ -605,23 +515,33 @@ export default function App() {
                     <div className="flex items-center gap-2 col-span-2"><Briefcase size={16} className="text-emerald-500"/> 100% Placement Support</div>
                   </div>
 
-                  <div className="flex items-center gap-1 mb-6 text-sm">
-                    <span className="font-bold text-slate-900">{course.rating}</span>
-                    <div className="flex text-yellow-400">
-                      <Star size={14} fill="currentColor" />
-                      <Star size={14} fill="currentColor" />
-                      <Star size={14} fill="currentColor" />
-                      <Star size={14} fill="currentColor" />
-                      <Star size={14} fill="currentColor" />
-                    </div>
-                    <span className="text-gray-400 ml-1">({course.reviews})</span>
-                  </div>
-
                   {/* Card Footer (Price & CTA) */}
                   <div className="mt-auto pt-5 border-t border-gray-100 flex items-center justify-between">
-                    <div>
-                      <p className="text-xs text-gray-400 font-semibold mb-1">Starting at</p>
-                      <p className="text-xl font-extrabold text-slate-900">{course.price}</p>
+                    <div className="flex flex-col">
+                      <p className="text-xs text-gray-400 font-bold mb-1 uppercase tracking-wider">Starting at</p>
+                      <div className="flex items-baseline gap-2">
+                        {/* Original Strikethrough Price */}
+                        <span className="text-sm font-semibold text-gray-400 line-through decoration-red-500/80 decoration-2">
+                          ₹15,000
+                        </span>
+                        {/* Animated Offer Price */}
+                        <motion.span 
+                          className="text-2xl font-black text-brand-blue"
+                          initial={{ scale: 0.95 }}
+                          animate={{ scale: [1, 1.06, 1] }}
+                          transition={{
+                            duration: 2,
+                            repeat: Number.POSITIVE_INFINITY,
+                            ease: "easeInOut"
+                          }}
+                        >
+                          ₹7,500
+                        </motion.span>
+                      </div>
+                      {/* Interactive urgent discount tag */}
+                      <span className="text-[9px] font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md mt-1 w-fit border border-emerald-100 animate-pulse">
+                        50% OFF TODAY
+                      </span>
                     </div>
                     <HoverButton
                       as="a"
