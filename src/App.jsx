@@ -231,32 +231,37 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
             {/* Logo */}
-            <div className="flex-shrink-0 flex items-center cursor-pointer">
+            <a href="#hero" className="flex-shrink-0 flex items-center cursor-pointer group">
               <div className="flex flex-col items-center justify-center">
-                <div className="text-2xl md:text-3xl font-black tracking-widest text-white leading-none">
-                  BRILLNE<span className="text-red-600">X</span>
+                <div className="text-2xl md:text-3xl font-black tracking-widest text-white leading-none group-hover:text-red-500 transition-colors">
+                  BRILLNE<span className="text-red-600 group-hover:text-white transition-colors">X</span>
                 </div>
                 <div className="flex items-center gap-2 mt-1.5 opacity-90">
-                  <div className="h-px w-3 md:w-4 bg-red-600"></div>
-                  <span className="text-[0.55rem] md:text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase">Technologies</span>
-                  <div className="h-px w-3 md:w-4 bg-red-600"></div>
+                  <div className="h-px w-3 md:w-4 bg-red-600 group-hover:bg-white transition-colors"></div>
+                  <span className="text-[0.55rem] md:text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase group-hover:text-gray-300 transition-colors">Technologies</span>
+                  <div className="h-px w-3 md:w-4 bg-red-600 group-hover:bg-white transition-colors"></div>
                 </div>
               </div>
-            </div>
+            </a>
 
             {/* Desktop Nav with Sliding Tabs */}
             <nav className="hidden md:block">
               <NavHeader />
             </nav>
 
-            {/* Desktop CTAs */}
-            <div className="hidden md:flex items-center space-x-4">
-              <button className="text-sm font-semibold text-gray-300 hover:text-red-500 transition-colors">
-                Log In
-              </button>
-              <button className="bg-red-600 hover:bg-red-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-red-600/30 transition-all">
-                Sign Up
-              </button>
+            {/* Desktop WhatsApp CTA */}
+            <div className="hidden md:flex items-center">
+              <a 
+                href="https://wa.me/917204398855"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-[#25D366]/10 border border-[#25D366]/30 hover:bg-[#25D366]/20 hover:border-[#25D366] text-[#25D366] px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-[#25D366]/5"
+              >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.48 4.905 1.481 5.382 0 9.762-4.38 9.766-9.764.002-2.607-1.011-5.059-2.855-6.905C16.57 2.122 14.12 1.1 11.517 1.1c-5.385 0-9.765 4.38-9.769 9.764-.002 1.856.5 3.666 1.453 5.291L2.164 22l6.096-1.599c-1.54 1.055-1.574.966-.613.753z"/>
+                </svg>
+                <span>WhatsApp Us</span>
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -271,19 +276,30 @@ export default function App() {
         {/* Mobile Nav */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-[#0a0a0a] border-t border-white/10 px-4 pt-2 pb-6 space-y-2 absolute w-full shadow-2xl">
-            <a href="#courses" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5">Courses</a>
-            <a href="#universities" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5">Universities</a>
-            <a href="#outcomes" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5">Career Outcomes</a>
+            <a href="#courses" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Courses</a>
+            <a href="#what-we-offer" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>What We Offer</a>
+            <a href="#why-choose-us" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</a>
+            <a href="#outcomes" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Career Outcomes</a>
             <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-3">
-              <button className="w-full text-center border border-gray-600 bg-transparent text-white px-5 py-3 rounded-lg font-semibold hover:bg-white/5">Log In</button>
-              <button className="w-full text-center bg-red-600 hover:bg-red-500 text-white px-5 py-3 rounded-lg font-semibold shadow-lg shadow-red-600/30">Sign Up</button>
+              <a 
+                href="https://wa.me/917204398855"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 bg-[#25D366]/10 border border-[#25D366]/30 hover:bg-[#25D366]/20 hover:border-[#25D366] text-[#25D366] py-3 rounded-xl font-bold transition-all shadow-md shadow-[#25D366]/5"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.48 4.905 1.481 5.382 0 9.762-4.38 9.766-9.764.002-2.607-1.011-5.059-2.855-6.905C16.57 2.122 14.12 1.1 11.517 1.1c-5.385 0-9.765 4.38-9.769 9.764-.002 1.856.5 3.666 1.453 5.291L2.164 22l6.096-1.599c-1.54 1.055-1.574.966-.613.753z"/>
+                </svg>
+                <span>WhatsApp Us</span>
+              </a>
             </div>
           </div>
         )}
       </header>
 
       {/* Hero Section */}
-      <section className="bg-white pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden relative border-b border-gray-200">
+      <section id="hero" className="bg-white pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden relative border-b border-gray-200 scroll-mt-20">
         {/* Animated Background Paths */}
         <div className="absolute inset-0 z-0 opacity-70">
           <FloatingPaths position={1} />
@@ -663,18 +679,18 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-12">
             
             <div className="lg:col-span-2">
-              <div className="mb-6 inline-block cursor-pointer">
+              <a href="#hero" className="mb-6 inline-block cursor-pointer group">
                 <div className="flex flex-col items-start justify-center">
-                  <div className="text-3xl font-black tracking-widest text-white leading-none">
-                    BRILLNE<span className="text-red-600">X</span>
+                  <div className="text-3xl font-black tracking-widest text-white leading-none group-hover:text-red-500 transition-colors">
+                    BRILLNE<span className="text-red-600 group-hover:text-white transition-colors">X</span>
                   </div>
                   <div className="flex items-center gap-2 mt-1.5 opacity-90">
-                    <div className="h-px w-4 bg-red-600"></div>
-                    <span className="text-[0.65rem] font-bold tracking-[0.3em] text-gray-400 uppercase">Technologies</span>
-                    <div className="h-px w-4 bg-red-600"></div>
+                    <div className="h-px w-4 bg-red-600 group-hover:bg-white transition-colors"></div>
+                    <span className="text-[0.65rem] font-bold tracking-[0.3em] text-gray-400 uppercase group-hover:text-gray-300 transition-colors">Technologies</span>
+                    <div className="h-px w-4 bg-red-600 group-hover:bg-white transition-colors"></div>
                   </div>
                 </div>
-              </div>
+              </a>
               <p className="text-gray-400 mb-6 max-w-sm">
                 Empowering professionals globally to upskill, transition careers, and achieve their maximum potential through high-quality online education with Real Projects & Real Skills.
               </p>
