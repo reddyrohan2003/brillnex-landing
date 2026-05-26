@@ -222,7 +222,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-900 selection:bg-brand-blue/20 selection:text-brand-blue">
+    <div className="min-h-screen bg-[#F1F5F9] font-sans text-gray-900 selection:bg-brand-blue/20 selection:text-brand-blue">
       
       {/* Top Notification Bar */}
       <div className="bg-brand-blue text-white text-xs font-medium py-2 px-4 text-center tracking-wide">
@@ -307,7 +307,7 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="bg-gradient-to-b from-[#F3F7FF] to-[#EEF4FF] pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden relative border-b border-gray-200 scroll-mt-20">
+      <section id="hero" className="bg-gradient-to-b from-[#EBF2FF] to-[#DEE9FC] pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden relative border-b border-gray-200 scroll-mt-20">
         {/* Animated Background Paths */}
         <div className="absolute inset-0 z-0 opacity-70">
           <FloatingPaths position={1} />
@@ -357,13 +357,13 @@ export default function App() {
               </p>
               
               {/* High-Conversion Form inside Hero */}
-              <div className="bg-white border border-[rgba(30,136,255,0.15)] p-2 rounded-xl shadow-[0_8px_30px_rgba(30,136,255,0.08)] flex flex-col sm:flex-row gap-2 max-w-lg relative z-20">
+              <div className="bg-white/80 backdrop-blur-md border border-[rgba(30,136,255,0.2)] p-2 rounded-xl shadow-[0_8px_30px_rgba(30,136,255,0.08)] flex flex-col sm:flex-row gap-2 max-w-lg relative z-20">
                 <div className="flex-1 relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                   <input 
                     type="text" 
                     placeholder="Search courses (e.g. AI, DevOps)" 
-                    className="w-full pl-10 pr-4 py-3 rounded-lg bg-gray-50 border-transparent focus:bg-white focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-slate-900 placeholder-gray-500"
+                    className="w-full pl-10 pr-4 py-3 rounded-lg bg-white/40 border-transparent focus:bg-white/60 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-slate-900 placeholder-gray-500"
                   />
                 </div>
                 <button className="bg-gradient-to-r from-[#1E88FF] to-[#00C2FF] hover:from-[#00C2FF] hover:to-[#1E88FF] text-white px-8 py-3 rounded-lg font-bold shadow-lg shadow-brand-blue/20 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap">
@@ -436,7 +436,7 @@ export default function App() {
       </section>
 
       {/* Hiring Partners Marquee */}
-      <section className="border-y border-gray-200 bg-white py-8">
+      <section className="border-y border-gray-200/50 bg-[#E2E8F0]/30 py-8 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">Brillnex Alumni Work At</p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
@@ -534,7 +534,7 @@ export default function App() {
                 className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 ${
                   activeTab === tab.id 
                   ? 'bg-slate-900 text-white shadow-md' 
-                  : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                  : 'bg-white/50 text-gray-600 border border-gray-200 hover:border-gray-300 hover:bg-white/80 backdrop-blur-sm'
                 }`}
               >
                 {tab.label}
@@ -545,10 +545,10 @@ export default function App() {
           {/* Course Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courseData[activeTab].map((course) => (
-              <div key={course.id} className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-[0_0_25px_rgba(30,136,255,0.18)] hover:-translate-y-[3px] hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full">
+              <div key={course.id} className="group bg-white/70 backdrop-blur-md border border-white/90 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgba(30,136,255,0.12)] hover:-translate-y-[3px] hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full">
                 
                 {/* Card Header area */}
-                <div className="p-6 pb-5 border-b border-gray-100 bg-gradient-to-br from-white to-gray-50">
+                <div className="p-6 pb-5 border-b border-gray-100 bg-white/40 backdrop-blur-sm">
                   <div className="flex justify-between items-start mb-4">
                     <div className="bg-brand-blue/10 text-brand-blue text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                       <Award size={14} /> Certificate
@@ -616,7 +616,7 @@ export default function App() {
       </section>
 
       {/* Why Choose Brillnex Section (From Instagram) */}
-      <section id="why-choose-us" className="py-20 bg-white border-t border-gray-200 scroll-mt-20">
+      <section id="why-choose-us" className="py-20 bg-gradient-to-b from-[#F1F5F9] to-[#EBF2FF] border-t border-gray-200/50 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -634,7 +634,7 @@ export default function App() {
               { title: "Flexible Learning", desc: "Learn at your own pace, anytime, with life-time access to cohort archives.", icon: <Clock className="text-brand-blue" size={24} /> },
               { title: "Certificate", desc: "Receive a verified certificate of completion recognized by our hiring networks.", icon: <CheckCircle className="text-brand-blue" size={24} /> },
             ].map((usp, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-100 p-8 rounded-2xl transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 hover:bg-white flex gap-4">
+              <div key={idx} className="bg-white/50 border border-white/60 p-8 rounded-2xl backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 hover:bg-white/80 flex gap-4">
                 <div className="w-12 h-12 bg-brand-blue/10 rounded-xl flex items-center justify-center shrink-0 border border-brand-blue/20">
                   {usp.icon}
                 </div>
