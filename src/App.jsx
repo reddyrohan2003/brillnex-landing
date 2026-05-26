@@ -109,6 +109,25 @@ const Cursor = ({ position }) => {
   );
 };
 
+const companies = [
+  { name: "Microsoft", className: "font-serif text-slate-800 font-black text-xl" },
+  { name: "IBM", className: "tracking-tighter text-blue-600 font-extrabold text-xl" },
+  { name: "amazon", className: "tracking-tight text-orange-500 font-bold text-xl" },
+  { name: "Google", className: "italic text-slate-900 font-bold text-xl" },
+  { name: "Oracle", className: "text-slate-700 font-black text-xl" },
+  { name: "Accenture", className: "text-indigo-600 font-bold text-xl" },
+  { name: "Meta", className: "text-blue-500 font-black tracking-tight text-xl" },
+  { name: "Apple", className: "text-slate-900 font-medium text-xl" },
+  { name: "NVIDIA", className: "font-mono text-emerald-600 font-black tracking-widest uppercase text-lg" },
+  { name: "Razorpay", className: "text-blue-600 font-extrabold italic text-xl" },
+  { name: "CRED", className: "font-mono text-slate-900 font-bold tracking-[0.2em] text-lg" },
+  { name: "zepto", className: "text-purple-600 font-black italic text-xl" },
+  { name: "swiggy", className: "text-orange-600 font-extrabold text-xl" },
+  { name: "zomato", className: "font-serif text-red-600 font-black text-xl" },
+  { name: "PhonePe", className: "text-violet-600 font-black text-xl" },
+  { name: "Flipkart", className: "text-blue-500 font-black text-xl" }
+];
+
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('software');
@@ -436,16 +455,29 @@ export default function App() {
       </section>
 
       {/* Hiring Partners Marquee */}
-      <section className="border-y border-gray-200/50 bg-[#E2E8F0]/30 py-8 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">Brillnex Alumni Work At</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <div className="text-xl font-black font-serif text-slate-800">Microsoft</div>
-            <div className="text-xl font-extrabold tracking-tighter text-blue-600">IBM</div>
-            <div className="text-xl font-bold tracking-tight text-orange-500">amazon</div>
-            <div className="text-xl font-bold italic text-slate-900">Google</div>
-            <div className="text-xl font-black text-slate-700">Oracle</div>
-            <div className="text-xl font-bold text-indigo-600 hidden md:block">Accenture</div>
+      <section className="border-y border-gray-200/50 bg-[#E2E8F0]/30 py-8 backdrop-blur-sm overflow-hidden w-full relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+          <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest">Brillnex Alumni Work At</p>
+        </div>
+        
+        {/* Infinite Marquee Slider */}
+        <div className="w-full overflow-hidden flex relative opacity-65 hover:opacity-100 transition-opacity duration-500 py-2">
+          {/* Subtle gradient fading mask on left/right edges for premium tech look */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#F1F5F9] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#F1F5F9] to-transparent z-10 pointer-events-none" />
+          
+          <div className="animate-logo-marquee flex gap-12 md:gap-20 items-center whitespace-nowrap">
+            {companies.map((company, idx) => (
+              <div key={`logo-1-${idx}`} className={`${company.className} select-none cursor-default hover:scale-105 transition-transform duration-300 filter grayscale hover:grayscale-0`}>
+                {company.name}
+              </div>
+            ))}
+            {/* Secondary duplicate copy for infinite seamless loop */}
+            {companies.map((company, idx) => (
+              <div key={`logo-2-${idx}`} className={`${company.className} select-none cursor-default hover:scale-105 transition-transform duration-300 filter grayscale hover:grayscale-0`}>
+                {company.name}
+              </div>
+            ))}
           </div>
         </div>
       </section>

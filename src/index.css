@@ -67,4 +67,20 @@
       linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   }
+
+  /* Infinite Logo Marquee */
+  @keyframes logo-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-logo-marquee {
+    display: flex;
+    width: max-content;
+    animation: logo-marquee 30s linear infinite;
+  }
+
+  .animate-logo-marquee:hover {
+    animation-play-state: paused;
+  }
 }
