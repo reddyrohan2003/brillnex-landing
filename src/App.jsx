@@ -241,13 +241,13 @@ export default function App() {
                 className="h-14 w-14 rounded-xl object-cover bg-white p-0.5 shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-all duration-300"
               />
               <div className="flex flex-col items-start justify-center">
-                <div className="text-2xl md:text-3xl font-black tracking-widest text-white leading-none group-hover:text-brand-cyan transition-colors">
-                  BRILLNE<span className="text-brand-cyan group-hover:text-white transition-colors">X</span>
+                <div className="text-2xl md:text-3xl font-black tracking-widest text-white leading-none group-hover:text-brand-blue transition-colors">
+                  BRILLNE<span className="text-brand-blue group-hover:text-white transition-colors">X</span>
                 </div>
                 <div className="flex items-center gap-2 mt-1.5 opacity-90">
-                  <div className="h-px w-3 md:w-4 bg-brand-cyan group-hover:bg-white transition-colors"></div>
+                  <div className="h-px w-3 md:w-4 bg-brand-blue group-hover:bg-white transition-colors"></div>
                   <span className="text-[0.55rem] md:text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase group-hover:text-gray-300 transition-colors">Technologies</span>
-                  <div className="h-px w-3 md:w-4 bg-brand-cyan group-hover:bg-white transition-colors"></div>
+                  <div className="h-px w-3 md:w-4 bg-brand-blue group-hover:bg-white transition-colors"></div>
                 </div>
               </div>
             </a>
@@ -408,9 +408,9 @@ export default function App() {
                   delay: 1,
                 }}
               />
-              {/* Animated Container for Logo */}
+              {/* Animated Container for Logo (Now matches the top-left logo branding layout, but larger and beautifully card-wrapped) */}
               <motion.div
-                className="relative z-10 p-6 rounded-[2rem] bg-gradient-to-br from-white/80 to-gray-50/50 border border-gray-100/50 backdrop-blur-lg shadow-2xl shadow-blue-500/10 flex items-center justify-center"
+                className="relative z-10 p-8 rounded-[2.5rem] bg-gradient-to-br from-white/95 to-gray-50/90 border border-gray-100/80 backdrop-blur-lg shadow-2xl shadow-blue-500/10 flex items-center gap-6"
                 initial={{ opacity: 0, scale: 0.8, y: 30 }}
                 animate={{
                   opacity: 1,
@@ -425,9 +425,19 @@ export default function App() {
               >
                 <img
                   src="/logo.png"
-                  alt="Brillnex Technologies"
-                  className="w-60 h-60 md:w-68 md:h-68 object-contain mix-blend-multiply filter drop-shadow(0 15px 25px rgba(30,136,255,0.15))"
+                  alt="Brillnex Logo"
+                  className="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover bg-white p-0.5 shadow-lg shadow-blue-500/20"
                 />
+                <div className="flex flex-col items-start justify-center">
+                  <div className="text-3xl md:text-4xl font-black tracking-widest text-slate-900 leading-none">
+                    BRILLNE<span className="text-brand-blue">X</span>
+                  </div>
+                  <div className="flex items-center gap-2 mt-2 opacity-90">
+                    <div className="h-0.5 w-4 bg-brand-blue"></div>
+                    <span className="text-[0.55rem] md:text-[0.6rem] font-bold tracking-[0.3em] text-gray-500 uppercase">Technologies</span>
+                    <div className="h-0.5 w-4 bg-brand-blue"></div>
+                  </div>
+                </div>
               </motion.div>
             </div>
 

@@ -336,13 +336,13 @@ export function CinematicFooter() {
 
               {/* Logo back to top */}
               <a href="#hero" className="flex flex-col items-start group order-1 md:order-1">
-                <div className="text-xl font-black tracking-widest text-white leading-none group-hover:text-brand-cyan transition-colors">
-                  BRILLNE<span className="text-brand-cyan group-hover:text-white transition-colors">X</span>
+                <div className="text-xl font-black tracking-widest text-white leading-none group-hover:text-brand-blue transition-colors">
+                  BRILLNE<span className="text-brand-blue group-hover:text-white transition-colors">X</span>
                 </div>
                 <div className="flex items-center gap-1.5 mt-1 opacity-80">
-                  <div className="h-px w-3 bg-brand-cyan group-hover:bg-white transition-colors" />
+                  <div className="h-px w-3 bg-brand-blue group-hover:bg-white transition-colors" />
                   <span className="text-[0.5rem] font-bold tracking-[0.25em] text-gray-500 uppercase group-hover:text-gray-400 transition-colors">Technologies</span>
-                  <div className="h-px w-3 bg-brand-cyan group-hover:bg-white transition-colors" />
+                  <div className="h-px w-3 bg-brand-blue group-hover:bg-white transition-colors" />
                 </div>
               </a>
 
