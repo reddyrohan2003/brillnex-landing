@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { MessageSquare } from 'lucide-react';
 import { 
   Search, Menu, X, ChevronRight, Clock, Award, Briefcase, 
   CheckCircle, PlayCircle, Star, ArrowRight, BookOpen, Users,
@@ -233,8 +234,13 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
             {/* Logo */}
-            <a href="#hero" className="flex-shrink-0 flex items-center cursor-pointer group">
-              <div className="flex flex-col items-center justify-center">
+            <a href="#hero" className="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+              <img
+                src="/logo.jpg"
+                alt="Brillnex Logo"
+                className="h-14 w-14 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow duration-300"
+              />
+              <div className="flex flex-col items-start justify-center">
                 <div className="text-2xl md:text-3xl font-black tracking-widest text-white leading-none group-hover:text-red-500 transition-colors">
                   BRILLNE<span className="text-red-600 group-hover:text-white transition-colors">X</span>
                 </div>
@@ -371,37 +377,54 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* Hero Image/Visual */}
-            <div className="relative hidden lg:block">
-              <div className="absolute inset-0 bg-gradient-to-tr from-red-100 to-transparent rounded-3xl transform rotate-3 scale-105 opacity-50"></div>
-              <div className="relative bg-white border border-gray-100 rounded-3xl shadow-2xl p-8 overflow-hidden">
-                <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-red-100 rounded-full blur-3xl opacity-60"></div>
-                <div className="relative z-10 flex flex-col gap-6">
-                  
-                  {/* Mock Video Player UI */}
-                  <div className="bg-slate-50 border border-gray-100 rounded-xl p-4 flex items-center gap-4 shadow-sm">
-                    <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center cursor-pointer shadow-lg shadow-red-600/30">
-                      <PlayCircle size={24} className="text-white" />
-                    </div>
-                    <div>
-                      <h4 className="text-slate-900 font-bold">Brillnex Success Stories</h4>
-                      <p className="text-gray-500 text-sm">How Sarah became an AI Engineer</p>
-                    </div>
-                  </div>
-
-                  {/* Mock Stats Cards */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white shadow-sm border border-gray-100 rounded-xl p-5">
-                      <div className="text-3xl font-extrabold text-red-600 mb-1">50%+</div>
-                      <div className="text-gray-500 text-sm font-medium">Avg. Salary Hike</div>
-                    </div>
-                    <div className="bg-white shadow-sm border border-gray-100 rounded-xl p-5">
-                      <div className="text-3xl font-extrabold text-red-600 mb-1">10k+</div>
-                      <div className="text-gray-500 text-sm font-medium">Careers Transitioned</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* Hero Logo Visual */}
+            <div className="relative hidden lg:flex items-center justify-center">
+              {/* Ambient glow behind logo */}
+              <motion.div
+                className="absolute w-80 h-80 rounded-full opacity-30"
+                style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.5) 0%, rgba(59,130,246,0) 70%)' }}
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.2, 0.4, 0.2],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              />
+              {/* Secondary red glow ring */}
+              <motion.div
+                className="absolute w-96 h-96 rounded-full opacity-20"
+                style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.4) 0%, rgba(220,38,38,0) 65%)' }}
+                animate={{
+                  scale: [1.1, 0.9, 1.1],
+                  opacity: [0.15, 0.3, 0.15],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: 1,
+                }}
+              />
+              {/* Animated Logo */}
+              <motion.img
+                src="/logo.jpg"
+                alt="Brillnex Technologies"
+                className="relative z-10 w-72 h-72 md:w-80 md:h-80 object-contain rounded-3xl shadow-2xl shadow-blue-500/20"
+                initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: [0, -12, 0],
+                }}
+                transition={{
+                  opacity: { duration: 1, delay: 0.5 },
+                  scale: { duration: 1, delay: 0.5, type: 'spring', stiffness: 100 },
+                  y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.5 },
+                }}
+              />
             </div>
 
           </div>
@@ -570,9 +593,7 @@ export default function App() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.48 4.905 1.481 5.382 0 9.762-4.38 9.766-9.764.002-2.607-1.011-5.059-2.855-6.905C16.57 2.122 14.12 1.1 11.517 1.1c-5.385 0-9.765 4.38-9.769 9.764-.002 1.856.5 3.666 1.453 5.291L2.164 22l6.096-1.599z"/>
-                      </svg>
+                      <MessageSquare className="h-4 w-4" />
                       Talk to Mentor
                     </HoverButton>
                   </div>
