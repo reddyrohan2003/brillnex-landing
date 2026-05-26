@@ -611,11 +611,7 @@ export default function App() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <button className="inline-flex items-center gap-2 text-brand-blue font-bold hover:text-brand-blue/80 transition-colors group">
-              View All Programs <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+
 
         </div>
       </section>
