@@ -1,41 +1,70 @@
 import React from "react";
 
-// Simple className joiner — no shadcn needed
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 /**
- * HoverButton — adapted from the user-provided component.
- * Converted from TypeScript → JavaScript.
- * Theme: Brillnex red (#dc2626 → #ef4444) instead of blue.
- * Supports `as` prop so it can render as <a> or <button>.
+ * HoverButton — Brillnex themed.
+ * Features:
+ *   • Smooth background colour sweep on hover (dark red → bright orange-red)
+ *   • Glowing particle sparks that follow the cursor
+ *   • Supports `as` prop (renders as <a> or <button>)
  */
+
+// Inject the keyframe animation once into the document head
+const STYLE = `
+@keyframes hb-sweep {
+  0%   { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
+}
+.hb-idle {
+  background: linear-gradient(270deg, #b91c1c, #dc2626, #ef4444, #dc2626, #b91c1c);
+  background-size: 300% 300%;
+  background-position: 100% 50%;
+  transition: background-position 0.7s ease, box-shadow 0.4s ease;
+}
+.hb-hovered {
+  background: linear-gradient(270deg, #b91c1c, #dc2626, #ef4444, #f97316, #ef4444, #dc2626, #b91c1c);
+  background-size: 400% 400%;
+  animation: hb-sweep 1.4s ease forwards;
+  box-shadow: 0 0 28px 4px rgba(239,68,68,0.55), 0 4px 16px rgba(220,38,38,0.45);
+}
+`;
+
+if (typeof document !== "undefined" && !document.getElementById("hb-styles")) {
+  const tag = document.createElement("style");
+  tag.id = "hb-styles";
+  tag.textContent = STYLE;
+  document.head.appendChild(tag);
+}
+
 const HoverButton = React.forwardRef(
   ({ className, children, as: Component = "button", ...props }, ref) => {
     const buttonRef = React.useRef(null);
-    const [isListening, setIsListening] = React.useState(false);
+    const [hovered, setHovered] = React.useState(false);
     const [circles, setCircles] = React.useState([]);
     const lastAddedRef = React.useRef(0);
 
     const createCircle = React.useCallback((x, y) => {
       const buttonWidth = buttonRef.current?.offsetWidth || 0;
       const xPos = x / buttonWidth;
-      const color = `linear-gradient(to right, var(--hb-start) ${xPos * 100}%, var(--hb-end) ${xPos * 100}%)`;
+      // Spark colour sweeps from pink-white to vivid orange-red
+      const color = `linear-gradient(to right, #fca5a5 ${xPos * 100}%, #f97316 ${xPos * 100}%)`;
       setCircles((prev) => [...prev, { id: Date.now(), x, y, color, fadeState: null }]);
     }, []);
 
     const handlePointerMove = React.useCallback(
       (event) => {
-        if (!isListening) return;
-        const currentTime = Date.now();
-        if (currentTime - lastAddedRef.current > 100) {
-          lastAddedRef.current = currentTime;
+        if (!hovered) return;
+        const now = Date.now();
+        if (now - lastAddedRef.current > 90) {
+          lastAddedRef.current = now;
           const rect = event.currentTarget.getBoundingClientRect();
           createCircle(event.clientX - rect.left, event.clientY - rect.top);
         }
       },
-      [isListening, createCircle]
+      [hovered, createCircle]
     );
 
     React.useEffect(() => {
@@ -50,10 +79,10 @@ const HoverButton = React.forwardRef(
             setCircles((prev) =>
               prev.map((c) => (c.id === circle.id ? { ...c, fadeState: "out" } : c))
             );
-          }, 1000);
+          }, 900);
           setTimeout(() => {
             setCircles((prev) => prev.filter((c) => c.id !== circle.id));
-          }, 2200);
+          }, 2100);
         }
       });
     }, [circles]);
@@ -66,41 +95,34 @@ const HoverButton = React.forwardRef(
           else if (ref) ref.current = node;
         }}
         className={cn(
-          // Layout & shape
           "relative isolate px-6 py-2.5 rounded-xl",
-          // Typography
           "text-white font-bold text-sm leading-6",
-          // Glassmorphic dark-red base
-          "backdrop-blur-lg",
           "cursor-pointer overflow-hidden",
-          // Inset border glow — red tinted
+          // Inset border glow
           "before:content-[''] before:absolute before:inset-0",
           "before:rounded-[inherit] before:pointer-events-none before:z-[1]",
-          "before:shadow-[inset_0_0_0_1px_rgba(220,38,38,0.45),inset_0_0_16px_0_rgba(239,68,68,0.15),inset_0_-3px_12px_0_rgba(220,38,38,0.2),0_1px_3px_0_rgba(0,0,0,0.55),0_4px_14px_0_rgba(220,38,38,0.3)]",
-          "before:mix-blend-normal before:transition-transform before:duration-300",
-          "active:before:scale-[0.975]",
+          "before:shadow-[inset_0_0_0_1px_rgba(239,68,68,0.5),inset_0_0_18px_0_rgba(239,68,68,0.12),0_1px_3px_0_rgba(0,0,0,0.5)]",
+          "before:transition-all before:duration-400",
+          "active:scale-95",
           "flex items-center gap-2",
+          hovered ? "hb-hovered" : "hb-idle",
           className
         )}
         onPointerMove={handlePointerMove}
-        onPointerEnter={() => setIsListening(true)}
-        onPointerLeave={() => setIsListening(false)}
-        style={{
-          background: "linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)",
-          "--hb-start": "#fca5a5",   // red-300 — bright spark at cursor start
-          "--hb-end":   "#ef4444",   // red-500 — vivid red at cursor end
-        }}
+        onPointerEnter={() => setHovered(true)}
+        onPointerLeave={() => { setHovered(false); }}
+        style={{ transition: "transform 0.15s ease, box-shadow 0.4s ease" }}
         {...props}
       >
-        {/* Particle circles */}
+        {/* Cursor-following spark particles */}
         {circles.map(({ id, x, y, color, fadeState }) => (
           <div
             key={id}
             className={cn(
-              "absolute w-4 h-4 -translate-x-1/2 -translate-y-1/2 rounded-full",
-              "blur-xl pointer-events-none z-[-1] transition-opacity duration-300",
-              fadeState === "in"  && "opacity-80",
-              fadeState === "out" && "opacity-0 duration-[1.2s]",
+              "absolute w-5 h-5 -translate-x-1/2 -translate-y-1/2 rounded-full",
+              "blur-xl pointer-events-none z-[-1]",
+              fadeState === "in"  && "opacity-75 transition-opacity duration-300",
+              fadeState === "out" && "opacity-0 transition-opacity duration-[1.2s]",
               !fadeState          && "opacity-0"
             )}
             style={{ left: x, top: y, background: color }}
