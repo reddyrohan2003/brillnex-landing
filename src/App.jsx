@@ -23,7 +23,7 @@ function FloatingPaths({ position }) {
   return (
     <div className="absolute inset-0 pointer-events-none">
       <svg
-        className="w-full h-full text-red-200 dark:text-neutral-900"
+        className="w-full h-full text-red-600 dark:text-neutral-900"
         viewBox="0 0 696 316"
         fill="none"
       >
@@ -34,7 +34,7 @@ function FloatingPaths({ position }) {
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            strokeOpacity={0.35 + path.id * 0.015}
+            strokeOpacity={0.06 + path.id * 0.01}
             initial={{ pathLength: 0.3, opacity: 0.6 }}
             animate={{
               pathLength: 1,
