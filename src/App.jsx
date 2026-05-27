@@ -418,9 +418,46 @@ export default function App() {
       {/* Hero Section */}
       <section id="hero" className="bg-[#0b1326] pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden relative border-b border-white/10 scroll-mt-20">
         {/* Animated Background Paths */}
-        <div className="absolute inset-0 z-0 opacity-70">
+        <div className="absolute inset-0 z-0 opacity-70 pointer-events-none select-none">
           <FloatingPaths position={1} />
           <FloatingPaths position={-1} />
+
+          {/* Premium Floating Glow Blobs from reference */}
+          <motion.div 
+            animate={{
+              x: [0, 80, -40, 0],
+              y: [0, -60, 40, 0],
+              scale: [1, 1.15, 0.95, 1],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -top-1/4 -left-1/4 w-[75%] h-[75%] rounded-full blur-[130px] mix-blend-screen pointer-events-none select-none opacity-40"
+            style={{
+              background: 'radial-gradient(circle, rgba(30,136,255,0.22) 0%, rgba(0,194,255,0.06) 50%, transparent 100%)'
+            }}
+          />
+          <motion.div 
+            animate={{
+              x: [0, -60, 80, 0],
+              y: [0, 40, -50, 0],
+              scale: [1, 0.9, 1.1, 1],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+            className="absolute -bottom-1/4 -right-1/4 w-[75%] h-[75%] rounded-full blur-[130px] mix-blend-screen pointer-events-none select-none opacity-35"
+            style={{
+              background: 'radial-gradient(circle, rgba(0,194,255,0.18) 0%, rgba(30,136,255,0.05) 50%, transparent 100%)'
+            }}
+          />
+          {/* Fine Tech Grid Overlay inspired by high-end SaaS platforms */}
+          <div className="absolute inset-0 bg-grid-mesh-dark opacity-[0.25] pointer-events-none select-none" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
