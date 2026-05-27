@@ -18,20 +18,20 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #0f0f11;
+    background: #060e20;
   }
   ::-webkit-scrollbar-thumb {
     background: #27272a;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #1E88FF;
+    background: #4F46E5;
   }
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 20px rgba(30, 136, 255, 0.4);
+    text-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
   }
   
   .glass-dark {
@@ -50,7 +50,7 @@
 
   /* Glowing ambient blobs */
   .bg-radial-glow {
-    background: radial-gradient(circle at center, rgba(30, 136, 255, 0.15) 0%, rgba(30, 136, 255, 0) 70%);
+    background: radial-gradient(circle at center, rgba(79, 70, 229, 0.15) 0%, rgba(79, 70, 229, 0) 70%);
   }
 
   /* Animated background mesh grid */

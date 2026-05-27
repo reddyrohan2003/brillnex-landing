@@ -35,7 +35,7 @@ function FloatingPaths({ position }) {
           <motion.path
             key={path.id}
             d={path.d}
-            stroke="#1E88FF"
+            stroke="#4F46E5"
             strokeWidth={path.width}
             strokeOpacity={0.12 + path.id * 0.015}
             initial={{ pathLength: 0.3, opacity: 0.6 }}
@@ -104,7 +104,7 @@ const Cursor = ({ position }) => {
   return (
     <motion.li
       animate={position}
-      className="absolute z-0 top-1 bottom-1 rounded-full bg-gradient-to-r from-[#1E88FF] to-[#00C2FF] shadow-lg shadow-brand-blue/20"
+      className="absolute z-0 top-1 bottom-1 rounded-full bg-gradient-to-r from-[#4F46E5] to-[#89ceff] shadow-lg shadow-brand-blue/20"
     />
   );
 };
@@ -198,7 +198,7 @@ export default function App() {
       </div>
 
       {/* Navigation (Dark Theme to match Logo background) */}
-      <header className="bg-[#050816] border-b border-white/10 sticky top-0 z-50">
+      <header className="bg-[#0b1326] border-b border-white/10 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
             {/* Logo */}
@@ -251,7 +251,7 @@ export default function App() {
 
         {/* Mobile Nav */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-[#050816] border-t border-white/10 px-4 pt-2 pb-6 space-y-2 absolute w-full shadow-2xl">
+          <div className="md:hidden bg-[#0b1326] border-t border-white/10 px-4 pt-2 pb-6 space-y-2 absolute w-full shadow-2xl">
             <a href="#courses" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Courses</a>
             <a href="#what-we-offer" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>What We Offer</a>
             <a href="#why-choose-us" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</a>
@@ -328,7 +328,7 @@ export default function App() {
               <div className="relative z-20">
                 <a 
                   href="#courses" 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1E88FF] to-[#00C2FF] hover:from-[#00C2FF] hover:to-[#1E88FF] text-white px-10 py-4 rounded-xl font-bold shadow-lg shadow-brand-blue/20 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap text-base"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#4F46E5] to-[#89ceff] hover:from-[#89ceff] hover:to-[#4F46E5] text-white px-10 py-4 rounded-xl font-bold shadow-lg shadow-brand-blue/20 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap text-base"
                 >
                   Explore Programs <ArrowRight size={18} />
                 </a>
@@ -422,7 +422,7 @@ export default function App() {
       </section>
 
       {/* What We Offer Section (From Instagram) */}
-      <section id="what-we-offer" className="bg-[#050816] text-white py-20 relative overflow-hidden scroll-mt-20">
+      <section id="what-we-offer" className="bg-[#0b1326] text-white py-20 relative overflow-hidden scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
           <span className="text-brand-cyan text-xs font-black uppercase tracking-widest block mb-3">WELCOME TO BRILLNEX TECHNOLOGIES</span>
@@ -434,7 +434,7 @@ export default function App() {
           </p>
 
           <div className="border-t border-white/10 pt-4 mb-10">
-            <span className="bg-[#050816] px-6 text-sm font-black tracking-[0.2em] text-gray-500 uppercase">WHAT WE OFFER</span>
+            <span className="bg-[#0b1326] px-6 text-sm font-black tracking-[0.2em] text-gray-500 uppercase">WHAT WE OFFER</span>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-16">
@@ -649,8 +649,8 @@ export default function App() {
       <section id="why-choose-us" className="py-20 bg-gradient-to-br from-[#F8FAFC] via-[#F1F5F9] to-[#EBF2FF] border-t border-gray-200/40 scroll-mt-20 relative overflow-hidden">
         {/* Soft, premium ambient radial glows for sophisticated tech feel */}
         <div className="absolute inset-0 z-0 opacity-55 pointer-events-none">
-          <div className="absolute top-0 right-1/4 w-[35rem] h-[35rem] bg-gradient-to-br from-[#1E88FF]/10 to-[#00C2FF]/5 rounded-full blur-[110px]" />
-          <div className="absolute bottom-0 left-1/4 w-[35rem] h-[35rem] bg-gradient-to-tr from-[#00C2FF]/10 to-[#1E88FF]/5 rounded-full blur-[110px]" />
+          <div className="absolute top-0 right-1/4 w-[35rem] h-[35rem] bg-gradient-to-br from-[#4F46E5]/10 to-[#89ceff]/5 rounded-full blur-[110px]" />
+          <div className="absolute bottom-0 left-1/4 w-[35rem] h-[35rem] bg-gradient-to-tr from-[#89ceff]/10 to-[#4F46E5]/5 rounded-full blur-[110px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -804,7 +804,7 @@ export default function App() {
       </section>
 
       {/* Dark Theme Section: Outcomes */}
-      <section id="outcomes" className="bg-[#050816] py-24 relative overflow-hidden">
+      <section id="outcomes" className="bg-[#0b1326] py-24 relative overflow-hidden">
         {/* Subtle decorative background */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-brand-blue rounded-full blur-[120px] opacity-10"></div>

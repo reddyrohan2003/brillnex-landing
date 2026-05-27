@@ -34,12 +34,12 @@ const HoverButton = React.forwardRef(
         onPointerLeave={() => setHovered(false)}
         style={{
           background: hovered 
-            ? "linear-gradient(135deg, #00C2FF 0%, #1E88FF 100%)" 
-            : "linear-gradient(135deg, #1E88FF 0%, #00C2FF 100%)",
+            ? "linear-gradient(135deg, #89ceff 0%, #4F46E5 100%)" 
+            : "linear-gradient(135deg, #4F46E5 0%, #89ceff 100%)",
           color: "#ffffff",
           boxShadow: hovered 
-            ? "0 8px 25px rgba(30,136,255,0.22)" 
-            : "0 4px 12px rgba(30,136,255,0.08)",
+            ? "0 8px 25px rgba(79, 70, 229, 0.22)" 
+            : "0 4px 12px rgba(79, 70, 229, 0.08)",
           transform: hovered ? "translateY(-3px)" : "translateY(0)",
           transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         }}

@@ -8,18 +8,18 @@ export default {
     extend: {
       colors: {
         brand: {
-          blue: '#1E88FF',       // Electric Blue
-          cyan: '#00C2FF',       // Cyan Blue
-          dark: '#050816',       // Deep Navy Black
-          slate: '#0B1220',      // Dark Slate
-          card: '#111827',       // Soft Dark
-          textPrimary: '#F8FAFC',// Primary Text
-          textSecondary: '#94A3B8', // Secondary Text
-          border: '#1E293B',     // Soft Blue Gray
-          highlight: '#C7D2FE',  // Silver Blue
+          blue: '#4F46E5',       // Electric Indigo
+          cyan: '#89ceff',       // Luminous Cyan
+          dark: '#0b1326',       // Dark Midnight / Surface
+          slate: '#131b2e',      // Surface container low
+          card: '#171f33',       // Surface container
+          textPrimary: '#dae2fd',// On-surface
+          textSecondary: '#c7c4d8', // On-surface-variant
+          border: '#464555',     // Outline-variant
+          highlight: '#c3c0ff',  // Luminous primary
         },
         slate: {
-          950: '#050506',
+          950: '#060e20',        // Surface container lowest
         }
       },
       animation: {

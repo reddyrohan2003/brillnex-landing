@@ -28,8 +28,8 @@ const STYLES = `
 }
 
 @keyframes bfooter-heartbeat {
-  0%, 100% { transform: scale(1);   filter: drop-shadow(0 0 4px rgba(30,136,255,0.4)); }
-  15%, 45%  { transform: scale(1.25); filter: drop-shadow(0 0 10px rgba(30,136,255,0.9)); }
+  0%, 100% { transform: scale(1);   filter: drop-shadow(0 0 4px rgba(79,70,229,0.4)); }
+  15%, 45%  { transform: scale(1.25); filter: drop-shadow(0 0 10px rgba(79,70,229,0.9)); }
   30%       { transform: scale(1); }
 }
 
@@ -46,8 +46,8 @@ const STYLES = `
 .bfooter-aurora {
   background: radial-gradient(
     circle at 50% 50%,
-    rgba(30, 136, 255, 0.18) 0%,
-    rgba(0, 194, 255, 0.10) 40%,
+    rgba(79, 70, 229, 0.18) 0%,
+    rgba(137, 206, 255, 0.10) 40%,
     transparent 70%
   );
 }
@@ -69,8 +69,8 @@ const STYLES = `
   font-weight: 900;
   letter-spacing: -0.05em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(30,136,255,0.08);
-  background: linear-gradient(180deg, rgba(30,136,255,0.12) 0%, transparent 65%);
+  -webkit-text-stroke: 1px rgba(79,70,229,0.08);
+  background: linear-gradient(180deg, rgba(79,70,229,0.12) 0%, transparent 65%);
   -webkit-background-clip: text;
   background-clip: text;
   user-select: none;
@@ -78,11 +78,11 @@ const STYLES = `
 
 /* Metallic blue heading glow */
 .bfooter-heading-glow {
-  background: linear-gradient(135deg, #1E88FF, #00C2FF);
+  background: linear-gradient(135deg, #4F46E5, #89ceff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 30px rgba(30,136,255,0.3));
+  filter: drop-shadow(0 0 30px rgba(79,70,229,0.3));
 }
 
 /* Glass pill */
@@ -96,29 +96,29 @@ const STYLES = `
 }
 
 .bfooter-pill:hover {
-  border-color: rgba(30,136,255,0.35);
-  background: linear-gradient(145deg, rgba(30,136,255,0.08) 0%, rgba(30,136,255,0.03) 100%);
-  box-shadow: 0 12px 32px -8px rgba(30,136,255,0.2), inset 0 1px 0 rgba(30,136,255,0.1);
+  border-color: rgba(79,70,229,0.35);
+  background: linear-gradient(145deg, rgba(79,70,229,0.08) 0%, rgba(79,70,229,0.03) 100%);
+  box-shadow: 0 12px 32px -8px rgba(79,70,229,0.2), inset 0 1px 0 rgba(79,70,229,0.1);
   color: #ffffff;
 }
 
 /* Blue pill (primary CTA) */
 .bfooter-pill-red {
-  background: linear-gradient(135deg, #1E88FF 0%, #0059C8 100%);
-  border: 1px solid rgba(30,136,255,0.6);
-  box-shadow: 0 8px 24px -4px rgba(30,136,255,0.4);
+  background: linear-gradient(135deg, #4F46E5 0%, #312e81 100%);
+  border: 1px solid rgba(79,70,229,0.6);
+  box-shadow: 0 8px 24px -4px rgba(79,70,229,0.4);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bfooter-pill-red:hover {
-  background: linear-gradient(135deg, #00C2FF 0%, #1E88FF 100%);
-  box-shadow: 0 12px 32px -4px rgba(30,136,255,0.6);
+  background: linear-gradient(135deg, #89ceff 0%, #4F46E5 100%);
+  box-shadow: 0 12px 32px -4px rgba(79,70,229,0.6);
   transform: translateY(-2px) scale(1.03);
 }
 
 .bfooter-divider {
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(30,136,255,0.3), rgba(255,255,255,0.06), rgba(30,136,255,0.3), transparent);
+  background: linear-gradient(to right, transparent, rgba(79,70,229,0.3), rgba(255,255,255,0.06), rgba(79,70,229,0.3), transparent);
 }
 `;
 
@@ -233,7 +233,7 @@ export function CinematicFooter() {
         style={{ height: "100vh", clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
         <footer className="brillnex-footer-wrapper fixed bottom-0 left-0 flex h-screen w-full flex-col justify-between overflow-hidden"
-          style={{ background: "radial-gradient(circle at top, rgba(0,194,255,0.12), transparent 40%), #050816", color: "#f3f4f6" }}
+          style={{ background: "radial-gradient(circle at top, rgba(137,206,255,0.12), transparent 40%), #0b1326", color: "#dae2fd" }}
         >
           {/* Blue aurora glow */}
           <div className="bfooter-aurora absolute left-1/2 top-1/2 h-[55vh] w-[75vw] rounded-[50%] blur-[100px] animate-bfooter-breathe pointer-events-none z-0" />
@@ -251,7 +251,7 @@ export function CinematicFooter() {
 
           {/* ── 1. Diagonal Marquee ── */}
           <div className="absolute top-10 left-0 w-full overflow-hidden py-3 z-10 -rotate-[1.5deg] scale-110"
-            style={{ borderTop: "1px solid rgba(30,136,255,0.15)", borderBottom: "1px solid rgba(30,136,255,0.15)", backgroundColor: "rgba(10,10,10,0.7)", backdropFilter: "blur(12px)" }}
+             style={{ borderTop: "1px solid rgba(79,70,229,0.15)", borderBottom: "1px solid rgba(79,70,229,0.15)", backgroundColor: "rgba(10,10,10,0.7)", backdropFilter: "blur(12px)" }}
           >
             <div className="flex w-max animate-bfooter-marquee text-[11px] font-black tracking-[0.25em] uppercase"
               style={{ color: "rgba(156,163,175,0.8)" }}
