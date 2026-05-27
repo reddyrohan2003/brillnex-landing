@@ -255,6 +255,19 @@ export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('software');
 
+  const handleRefer = (e) => {
+    if (e) e.preventDefault();
+    const friendNumber = prompt("💸 Refer & Earn ₹300\n\nPlease enter the mobile number of the person you are referring:");
+    if (friendNumber) {
+      const cleanNumber = friendNumber.trim();
+      if (cleanNumber) {
+        const message = `Hey BrillneX 👋\n\nI want to refer a friend for your courses and claim my ₹300 referral bonus!\n\n📱 Referred Friend's Mobile Number: ${cleanNumber}\n\nPlease guide me on the next steps.`;
+        const url = `https://wa.me/917204398855?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+    }
+  };
+
   const courseData = {
     software: [
       { id: 1, title: "Full Stack Development", university: "MERN Stack & More", duration: "4 Months", format: "Online Interactive", bestseller: true },
@@ -309,15 +322,13 @@ export default function App() {
 
             {/* Desktop WhatsApp CTA & Referral Buttons */}
             <div className="hidden md:flex items-center gap-3">
-              <a 
-                href={`https://wa.me/917204398855?text=${encodeURIComponent("Hey BrillneX 👋\n\nI want to refer a friend for your courses and earn ₹300 cashback! Please guide me on the referral process.")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 text-slate-950 px-4 py-2.5 rounded-xl text-sm font-black transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 border border-yellow-300/30"
+              <button 
+                onClick={handleRefer}
+                className="flex items-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 hover:bg-brand-cyan/20 hover:border-brand-cyan text-brand-cyan px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-brand-cyan/5 cursor-pointer"
               >
-                <Award className="h-5 w-5 text-slate-950 animate-pulse" />
+                <Award className="h-5 w-5 text-brand-cyan animate-pulse" />
                 <span>Refer & Earn ₹300</span>
-              </a>
+              </button>
 
               <a 
                 href="https://wa.me/917204398855"
@@ -349,16 +360,16 @@ export default function App() {
             <a href="#why-choose-us" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</a>
             <a href="#outcomes" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Career Outcomes</a>
             <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-3">
-              <a 
-                href={`https://wa.me/917204398855?text=${encodeURIComponent("Hey BrillneX 👋\n\nI want to refer a friend for your courses and earn ₹300 cashback! Please guide me on the referral process.")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 text-slate-950 py-3 rounded-xl font-extrabold transition-all shadow-lg shadow-amber-500/10 border border-yellow-300/30"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button 
+                onClick={(e) => {
+                  setIsMobileMenuOpen(false);
+                  handleRefer(e);
+                }}
+                className="w-full flex items-center justify-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 hover:bg-brand-cyan/20 hover:border-brand-cyan text-brand-cyan py-3 rounded-xl font-extrabold transition-all shadow-md shadow-brand-cyan/5 cursor-pointer"
               >
-                <Award className="h-5 w-5 text-slate-950 animate-pulse" />
+                <Award className="h-5 w-5 text-brand-cyan animate-pulse" />
                 <span>Refer & Earn ₹300</span>
-              </a>
+              </button>
 
               <a 
                 href="https://wa.me/917204398855"
@@ -660,7 +671,7 @@ export default function App() {
                       </li>
                       <li className="flex items-start gap-2.5">
                         <PlayCircle size={16} className="text-brand-cyan shrink-0 mt-0.5" />
-                        <span>Self paced learning with the recordings</span>
+                        <span>live sessions with lifetime recordings</span>
                       </li>
                       <li className="flex items-start gap-2.5">
                         <BookOpen size={16} className="text-brand-cyan shrink-0 mt-0.5" />
@@ -873,13 +884,14 @@ export default function App() {
                       <span className="block size-2 rounded-full bg-white/10"></span>
                       <span className="block size-2 rounded-full bg-white/10"></span>
                     </div>
-                    <svg className="w-full sm:w-[150%] text-slate-700/40 group-hover:text-slate-600/50 transition-colors duration-500" viewBox="0 0 366 231" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M0.148438 231V179.394L1.92188 180.322L2.94482 177.73L4.05663 183.933L6.77197 178.991L7.42505 184.284L9.42944 187.985L11.1128 191.306V155.455L13.6438 153.03V145.122L14.2197 142.829V150.454V154.842L15.5923 160.829L17.0793 172.215H19.2031V158.182L20.7441 153.03L22.426 148.111V142.407L24.7471 146.86V128.414L26.7725 129.918V120.916L28.1492 118.521L28.4653 127.438L29.1801 123.822L31.0426 120.525V130.26L32.3559 134.71L34.406 145.122V137.548L35.8982 130.26L37.1871 126.049L38.6578 134.71L40.659 138.977V130.26V126.049L43.7557 130.26V123.822L45.972 112.407L47.3391 103.407V92.4726L49.2133 98.4651V106.053L52.5797 89.7556L54.4559 82.7747L56.1181 87.9656L58.9383 89.7556V98.4651L60.7617 103.407L62.0545 123.822L63.8789 118.066L65.631 122.082L68.5479 114.229L70.299 109.729L71.8899 118.066L73.5785 123.822V130.26L74.9446 134.861L76.9243 127.87L78.352 134.71V138.977L80.0787 142.407V152.613L83.0415 142.407V130.26L86.791 123.822L89.0121 116.645V122.082L90.6059 127.87L92.3541 131.77L93.7104 123.822L95.4635 118.066L96.7553 122.082V137.548L99.7094 140.988V131.77L101.711 120.525L103.036 116.645V133.348L104.893 136.218L106.951 140.988L108.933 134.71L110.797 130.26L112.856 140.988V148.111L115.711 152.613L117.941 145.122L119.999 140.988V148.111L123.4 152.613L125.401 158.182L130.547 150.454V156.566L131.578 155.455L134.143 158.182L135.594 168.136L138.329 158.182L140.612 160.829L144.681 169.5L147.011 155.455L148.478 151.787L151.02 152.613L154.886 145.122L158 143.412L159.406 140.637L159.496 133.348L162.295 127.87V122.082L163.855 116.645V109.729L164.83 104.407L166.894 109.729L176.249 98.4651L178.254 106.169L180.77 98.4651V81.045L182.906 69.1641L184.8 56.8669L186.477 62.8428L187.848 79.7483L188.849 106.169L191.351 79.7483L193.485 75.645V98.4651L196.622 94.4523L198.623 87.4228V79.7483L200.717 75.645L202.276 81.045V89.3966L203.638 113.023L205.334 99.8037L207.164 94.4523L208.982 98.4651V102.176L211.267 107.64L212.788 81.045L214.437 66.0083L216.19 62.8428L217.941 56.8669V73.676V79.7483L220.28 75.645L222.516 66.0083V73.676H226.174V84.8662L228.566 98.4651L230.316 75.645L233.61 94.4523V104.25L236.882 102.176L239.543 113.023L241.057 98.4651L243.604 94.4523L244.975 106.169L245.975 87.4228L247.272 89.3966L250.732 84.8662L251.733 96.7549L254.644 94.4523L257.452 99.8037L259.853 91.3111L261.193 84.8662L264.162 75.645L265.808 87.4228L267.247 58.4895L269.757 66.0083L276.625 13.5146L273.33 58.4895L276.25 67.6563L282.377 20.1968L281.37 58.4895V66.0083L283.579 75.645L286.033 56.8669L287.436 73.676L290.628 77.6636L292.414 84.8662L294.214 61.3904L296.215 18.9623L300.826 0.947876L297.531 56.8669L299.973 62.8428L305.548 22.0598L299.755 114.956L301.907 105.378L304.192 112.688V94.9932L308.009 80.0829L310.003 94.9932L311.004 102.127L312.386 105.378L315.007 112.688L316.853 98.004L318.895 105.378L321.257 94.9932L324.349 100.81L325.032 80.0829L327.604 61.5733L329.308 82.3223L333.525 52.7986L334.097 52.145L334.735 55.6812L337.369 59.8108V73.676L340.743 87.9656L343.843 96.3728L348.594 82.7747L349.607 81.045L351 89.7556L352.611 96.3728L355.149 94.9932L356.688 102.176L359.396 108.784L360.684 111.757L365 95.7607V231H148.478H0.148438Z"
-                        fill="url(#paint0_linear_0_705)"
-                      />
+                    <svg className="w-40 h-40 mx-auto text-brand-cyan/20 group-hover:text-brand-cyan/40 transition-all duration-500 group-hover:scale-105 filter drop-shadow-[0_0_15px_rgba(137,206,255,0.15)]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <title>Verified Credentials Badge</title>
+                      <circle cx="50" cy="45" r="40" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+                      <path d="M50 8L61.5 17.5L76 15.5L78.5 30L90 35L86.5 49L91.5 62.5L81 72.5L78.5 87L64 85L50 92L36 85L21.5 87L19 72.5L8.5 62.5L13.5 49L10 35L21.5 30L24 15.5L38.5 17.5L50 8Z" fill="rgba(137,206,255,0.05)" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+                      <circle cx="50" cy="45" r="28" stroke="currentColor" strokeWidth="1.5" />
+                      <path d="M40 45L47 52L60 38" stroke="#89ceff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_8px_rgba(137,206,255,0.6)]" />
+                      <path d="M38 70L25 90L38 85L50 90L38 70Z" fill="rgba(137,206,255,0.15)" stroke="currentColor" strokeWidth="1" />
+                      <path d="M62 70L75 90L62 85L50 90L62 70Z" fill="rgba(137,206,255,0.15)" stroke="currentColor" strokeWidth="1" />
                     </svg>
                   </div>
                 </div>
@@ -893,7 +905,7 @@ export default function App() {
                       <Users className="m-auto size-5 text-brand-cyan" strokeWidth={2} />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors">1-on-1 Mentorship</h3>
+                      <h3 className="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors">Mentorship with experienced mentors</h3>
                       <p className="text-sm text-slate-400 leading-relaxed font-medium">Get personalized code reviews, weekly 1-on-1 strategy sessions, and real-time support from active tech professionals.</p>
                     </div>
                   </div>
