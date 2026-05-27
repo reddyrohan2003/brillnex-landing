@@ -110,21 +110,21 @@ const Cursor = ({ position }) => {
 };
 
 const companies = [
-  { name: "Microsoft", className: "font-serif text-slate-800 font-black text-xl" },
+  { name: "Microsoft", className: "font-serif text-slate-300 font-black text-xl" },
   { name: "Postman", className: "font-sans text-orange-500 font-extrabold tracking-tight text-xl" },
   { name: "amazon", className: "tracking-tight text-orange-500 font-bold text-xl" },
   { name: "Zerodha", className: "font-sans text-blue-600 font-black tracking-tight text-xl" },
-  { name: "Google", className: "italic text-slate-900 font-bold text-xl" },
+  { name: "Google", className: "italic text-slate-300 font-bold text-xl" },
   { name: "Groww", className: "font-sans text-emerald-500 font-black tracking-tight text-xl" },
   { name: "Razorpay", className: "text-blue-600 font-extrabold italic text-xl" },
   { name: "inVideo", className: "font-mono text-indigo-500 font-extrabold tracking-wide text-xl" },
   { name: "zepto", className: "text-purple-600 font-black italic text-xl" },
   { name: "Simpl", className: "font-sans text-emerald-400 font-black italic text-xl" },
-  { name: "CRED", className: "font-mono text-slate-900 font-bold tracking-[0.2em] text-lg" },
+  { name: "CRED", className: "font-mono text-slate-300 font-bold tracking-[0.2em] text-lg" },
   { name: "dunzo", className: "font-mono text-green-600 font-black tracking-widest uppercase text-lg" },
-  { name: "Hasura", className: "font-sans text-slate-900 font-bold tracking-tight text-xl" },
+  { name: "Hasura", className: "font-sans text-slate-300 font-bold tracking-tight text-xl" },
   { name: "zomato", className: "font-serif text-red-600 font-black text-xl" },
-  { name: "Ola", className: "font-sans text-slate-800 font-black uppercase tracking-wider text-xl" },
+  { name: "Ola", className: "font-sans text-slate-300 font-black uppercase tracking-wider text-xl" },
   { name: "meesho", className: "font-serif text-pink-600 font-black italic text-xl" }
 ];
 
@@ -275,7 +275,7 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="bg-gradient-to-b from-[#EBF2FF] to-[#DEE9FC] pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden relative border-b border-gray-200 scroll-mt-20">
+      <section id="hero" className="bg-[#0b1326] pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden relative border-b border-white/10 scroll-mt-20">
         {/* Animated Background Paths */}
         <div className="absolute inset-0 z-0 opacity-70">
           <FloatingPaths position={1} />
@@ -297,7 +297,7 @@ export default function App() {
               </div>
               
               {/* Dynamic Animated Letters Headline */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0B1220] tracking-tight leading-[1.1] mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
                 {["Learn.", "Build.", "Succeed."].map((word, wordIndex) => (
                   <span key={wordIndex} className="inline-block mr-4 last:mr-0">
                     {word.split("").map((letter, letterIndex) => (
@@ -311,7 +311,7 @@ export default function App() {
                           stiffness: 150,
                           damping: 25,
                         }}
-                        className={`inline-block ${word === "Succeed." ? "text-brand-blue" : "text-[#0B1220]"}`}
+                        className={`inline-block ${word === "Succeed." ? "text-brand-blue" : "text-white"}`}
                       >
                         {letter}
                       </motion.span>
@@ -320,7 +320,7 @@ export default function App() {
                 ))}
               </h1>
               
-              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-lg font-medium">
+              <p className="text-lg md:text-xl text-slate-400 mb-8 leading-relaxed max-w-lg font-medium">
                 Industry-ready tech education dedicated to delivering excellence with <strong>Real Projects</strong> & <strong>Real Skills</strong>.
               </p>
               
@@ -394,7 +394,7 @@ export default function App() {
       </section>
 
       {/* Hiring Partners Marquee */}
-      <section className="border-y border-gray-200/50 bg-[#E2E8F0]/30 py-8 backdrop-blur-sm overflow-hidden w-full relative">
+      <section className="border-y border-white/10 bg-[#131b2e]/50 py-8 backdrop-blur-sm overflow-hidden w-full relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
           <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest">Brillnex Alumni Work At</p>
         </div>
@@ -402,8 +402,8 @@ export default function App() {
         {/* Infinite Marquee Slider */}
         <div className="w-full overflow-hidden flex relative opacity-65 hover:opacity-100 transition-opacity duration-500 py-2">
           {/* Subtle gradient fading mask on left/right edges for premium tech look */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#F1F5F9] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#F1F5F9] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#0b1326] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#0b1326] to-transparent z-10 pointer-events-none" />
           
           <div className="animate-logo-marquee flex gap-12 md:gap-20 items-center whitespace-nowrap">
             {companies.map((company, idx) => (
@@ -484,12 +484,12 @@ export default function App() {
       </section>
 
       {/* Main Course Section */}
-      <section id="courses" className="py-20 bg-[#F3F7FF]">
+      <section id="courses" className="py-20 bg-[#0b1326] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Explore Top Programs</h2>
-            <p className="text-lg text-gray-600">Choose from our industry-recognized courses designed to make you highly hirable in today's market.</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">Explore Top Programs</h2>
+            <p className="text-lg text-slate-400">Choose from our industry-recognized courses designed to make you highly hirable in today's market.</p>
           </div>
 
           {/* Course Category Tabs */}
@@ -504,8 +504,8 @@ export default function App() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 ${
                   activeTab === tab.id 
-                  ? 'bg-slate-900 text-white shadow-md' 
-                  : 'bg-white/50 text-gray-600 border border-gray-200 hover:border-gray-300 hover:bg-white/80 backdrop-blur-sm'
+                  ? 'bg-brand-blue text-white shadow-md' 
+                  : 'bg-white/5 text-slate-400 border border-white/10 hover:border-white/20 hover:bg-white/10 backdrop-blur-sm'
                 }`}
               >
                 {tab.label}
@@ -516,7 +516,7 @@ export default function App() {
           {/* Course Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courseData[activeTab].map((course) => (
-              <div key={course.id} className="group bg-white/70 backdrop-blur-md border border-white/90 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgba(30,136,255,0.12)] hover:-translate-y-[3px] hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full relative">
+              <div key={course.id} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgba(79,70,229,0.12)] hover:-translate-y-[3px] hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full relative">
                 
                 {/* Popout Key Points Overlay */}
                 <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-lg border border-white/10 opacity-0 pointer-events-none translate-y-6 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) rounded-2xl p-6 flex flex-col justify-between z-30 text-white shadow-2xl shadow-blue-500/20">
@@ -572,7 +572,7 @@ export default function App() {
                 </div>
 
                 {/* Card Header area */}
-                <div className="p-6 pb-5 border-b border-gray-100 bg-white/40 backdrop-blur-sm">
+                <div className="p-6 pb-5 border-b border-white/10 bg-white/5 backdrop-blur-sm">
                   <div className="flex justify-between items-start mb-4">
                     <div className="bg-brand-blue/10 text-brand-blue text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                       <Award size={14} /> Certificate
@@ -581,29 +581,29 @@ export default function App() {
                       <span className="bg-brand-cyan/10 text-brand-cyan text-[10px] uppercase font-black tracking-wider px-2 py-1 rounded">Bestseller</span>
                     )}
                   </div>
-                  <h3 className="text-xl font-extrabold text-slate-900 leading-snug mb-2 group-hover:text-brand-blue transition-colors">
+                  <h3 className="text-xl font-extrabold text-white leading-snug mb-2 group-hover:text-brand-blue transition-colors">
                     {course.title}
                   </h3>
-                  <p className="text-sm font-medium text-gray-500 flex items-center gap-2">
+                  <p className="text-sm font-medium text-slate-400 flex items-center gap-2">
                     <GraduationCap size={16} /> {course.university}
                   </p>
                 </div>
 
                 {/* Card Body */}
                 <div className="p-6 flex-1 flex flex-col">
-                  <div className="grid grid-cols-2 gap-y-4 gap-x-2 mb-6 text-sm text-gray-600 font-medium">
-                    <div className="flex items-center gap-2"><Clock size={16} className="text-gray-400"/> {course.duration}</div>
-                    <div className="flex items-center gap-2"><BookOpen size={16} className="text-gray-400"/> {course.format}</div>
+                  <div className="grid grid-cols-2 gap-y-4 gap-x-2 mb-6 text-sm text-slate-300 font-medium">
+                    <div className="flex items-center gap-2"><Clock size={16} className="text-slate-400"/> {course.duration}</div>
+                    <div className="flex items-center gap-2"><BookOpen size={16} className="text-slate-400"/> {course.format}</div>
                     <div className="flex items-center gap-2 col-span-2"><Briefcase size={16} className="text-emerald-500"/> 100% Placement Support</div>
                   </div>
 
                   {/* Card Footer (Price & CTA) */}
-                  <div className="mt-auto pt-5 border-t border-gray-100 flex items-center justify-between">
+                  <div className="mt-auto pt-5 border-t border-white/10 flex items-center justify-between">
                     <div className="flex flex-col">
-                      <p className="text-xs text-gray-400 font-bold mb-1 uppercase tracking-wider">Starting at</p>
+                      <p className="text-xs text-slate-400 font-bold mb-1 uppercase tracking-wider">Starting at</p>
                       <div className="flex items-baseline gap-2">
                         {/* Original Strikethrough Price */}
-                        <span className="text-sm font-semibold text-gray-400 line-through decoration-red-500/80 decoration-2">
+                        <span className="text-sm font-semibold text-slate-500 line-through decoration-red-500/80 decoration-2">
                           ₹15,000
                         </span>
                         {/* Animated Offer Price */}
@@ -621,7 +621,7 @@ export default function App() {
                         </motion.span>
                       </div>
                       {/* Interactive urgent discount tag */}
-                      <span className="text-[9px] font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md mt-1 w-fit border border-emerald-100 animate-pulse">
+                      <span className="text-[9px] font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md mt-1 w-fit border border-emerald-500/20 animate-pulse">
                         50% OFF TODAY
                       </span>
                     </div>
@@ -646,7 +646,7 @@ export default function App() {
       </section>
 
       {/* Why Choose Brillnex Section */}
-      <section id="why-choose-us" className="py-20 bg-gradient-to-br from-[#F8FAFC] via-[#F1F5F9] to-[#EBF2FF] border-t border-gray-200/40 scroll-mt-20 relative overflow-hidden">
+      <section id="why-choose-us" className="py-20 bg-[#0b1326] border-t border-white/10 scroll-mt-20 relative overflow-hidden">
         {/* Soft, premium ambient radial glows for sophisticated tech feel */}
         <div className="absolute inset-0 z-0 opacity-55 pointer-events-none">
           <div className="absolute top-0 right-1/4 w-[35rem] h-[35rem] bg-gradient-to-br from-[#4F46E5]/10 to-[#89ceff]/5 rounded-full blur-[110px]" />
@@ -656,16 +656,16 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-blue text-xs font-black uppercase tracking-widest block mb-3">LEARN. BUILD. SUCCEED.</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Why Choose Brillnex?</h2>
-            <p className="text-lg text-gray-600 font-medium">We don't just teach technology—we empower you to master it with hands-on experience and professional support.</p>
+            <span className="text-brand-cyan text-xs font-black uppercase tracking-widest block mb-3">LEARN. BUILD. SUCCEED.</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">Why Choose Brillnex?</h2>
+            <p className="text-lg text-slate-400 font-medium">We don't just teach technology—we empower you to master it with hands-on experience and professional support.</p>
           </div>
 
           <div className="relative">
             <div className="relative z-10 grid grid-cols-6 gap-6">
               
               {/* Card 1: 100% Success & Career Placement */}
-              <div className="relative col-span-full flex overflow-hidden lg:col-span-2 rounded-3xl border border-white/60 bg-white/40 backdrop-blur-md shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-brand-blue/20 hover:bg-white/60 transition-all duration-500 group">
+              <div className="relative col-span-full flex overflow-hidden lg:col-span-2 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-brand-blue/20 hover:bg-white/10 transition-all duration-500 group">
                 <div className="relative m-auto size-fit pt-8 pb-6 px-6 flex flex-col items-center">
                   <div className="relative flex h-24 w-56 items-center justify-center">
                     <svg className="text-brand-blue/20 group-hover:text-brand-blue/30 transition-colors duration-500 absolute inset-0 size-full" viewBox="0 0 254 104" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -676,30 +676,30 @@ export default function App() {
                     </svg>
                     <span className="mx-auto block w-fit text-5xl font-black text-red-600 drop-shadow-[0_2px_8px_rgba(220,38,38,0.2)] group-hover:scale-110 transition-transform duration-500">100%</span>
                   </div>
-                  <h3 className="mt-8 text-center text-xl font-bold text-slate-900">Placement Support</h3>
-                  <p className="mt-2 text-center text-sm text-gray-600 leading-relaxed font-medium">Resume assistance, mock interviews, and direct referrals to hiring networks.</p>
+                  <h3 className="mt-8 text-center text-xl font-bold text-white">Placement Support</h3>
+                  <p className="mt-2 text-center text-sm text-slate-400 leading-relaxed font-medium">Resume assistance, mock interviews, and direct referrals to hiring networks.</p>
                 </div>
               </div>
 
               {/* Card 2: Real-World Projects */}
-              <div className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 rounded-3xl border border-white/60 bg-white/40 backdrop-blur-md shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-brand-blue/20 hover:bg-white/60 transition-all duration-500 group">
+              <div className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-brand-blue/20 hover:bg-white/10 transition-all duration-500 group">
                 <div className="pt-8 pb-6 px-6 flex flex-col items-center">
-                  <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-gray-200/50 bg-white/20 group-hover:scale-105 transition-transform duration-500 before:absolute before:-inset-2 before:rounded-full before:border before:border-gray-200/30">
-                    <Briefcase className="m-auto size-14 text-brand-blue group-hover:text-brand-cyan transition-colors duration-500" strokeWidth={1.5} />
+                  <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-white/10 bg-white/10 group-hover:scale-105 transition-transform duration-500 before:absolute before:-inset-2 before:rounded-full before:border before:border-white/10">
+                    <Briefcase className="m-auto size-14 text-brand-cyan group-hover:text-brand-blue transition-colors duration-500" strokeWidth={1.5} />
                   </div>
                   <div className="relative z-10 mt-6 space-y-2 text-center">
-                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-blue transition-colors">Real-World Projects</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed font-medium">Work on production-ready systems, build secure applications, and deploy to modern cloud platforms.</p>
+                    <h3 className="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors">Real-World Projects</h3>
+                    <p className="text-sm text-slate-400 leading-relaxed font-medium">Work on production-ready systems, build secure applications, and deploy to modern cloud platforms.</p>
                   </div>
                 </div>
               </div>
 
               {/* Card 3: 4-Month Bootcamps */}
-              <div className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 rounded-3xl border border-white/60 bg-white/40 backdrop-blur-md shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-brand-blue/20 hover:bg-white/60 transition-all duration-500 group">
+              <div className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-brand-blue/20 hover:bg-white/10 transition-all duration-500 group">
                 <div className="pt-8 pb-6 px-6 flex flex-col justify-between h-full gap-6">
                   <div className="pt-2 group-hover:scale-105 transition-transform duration-500">
-                    <div className="w-full py-4 px-2 bg-slate-900/5 rounded-2xl border border-slate-200/40 relative overflow-hidden backdrop-blur-sm">
-                      <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-slate-200/50 -translate-y-1/2 z-0" />
+                    <div className="w-full py-4 px-2 bg-white/5 rounded-2xl border border-white/10 relative overflow-hidden backdrop-blur-sm">
+                      <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-white/10 -translate-y-1/2 z-0" />
                       <div className="absolute top-1/2 left-4 w-[70%] h-0.5 bg-gradient-to-r from-brand-blue to-brand-cyan -translate-y-1/2 z-0 transition-all duration-500 group-hover:w-[90%]" />
                       
                       <div className="relative z-10 flex justify-between items-center w-full">
@@ -713,7 +713,7 @@ export default function App() {
                             <div className={`size-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-500 border ${
                               item.active 
                                 ? "bg-gradient-to-r from-brand-blue to-brand-cyan text-white border-transparent shadow-md shadow-blue-500/20 scale-110" 
-                                : "bg-white text-slate-400 border-slate-200 hover:border-slate-300"
+                                : "bg-[#131b2e] text-slate-400 border-white/10 hover:border-white/20"
                             }`}>
                               {item.step}
                             </div>
@@ -724,31 +724,31 @@ export default function App() {
                     </div>
                   </div>
                   <div className="relative z-10 mt-6 space-y-2 text-center">
-                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-blue transition-colors">4-Month Bootcamps</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed font-medium">Zero fluff. Master production-grade tech stacks in fully optimized, highly intense learning tracks.</p>
+                    <h3 className="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors">4-Month Bootcamps</h3>
+                    <p className="text-sm text-slate-400 leading-relaxed font-medium">Zero fluff. Master production-grade tech stacks in fully optimized, highly intense learning tracks.</p>
                   </div>
                 </div>
               </div>
 
               {/* Card 4: Verified Credentials */}
-              <div className="relative col-span-full overflow-hidden lg:col-span-3 rounded-3xl border border-white/60 bg-white/40 backdrop-blur-md shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-brand-blue/20 hover:bg-white/60 transition-all duration-500 group">
+              <div className="relative col-span-full overflow-hidden lg:col-span-3 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-brand-blue/20 hover:bg-white/10 transition-all duration-500 group">
                 <div className="grid pt-8 pb-6 px-6 sm:grid-cols-2 gap-6 items-center">
                   <div className="relative z-10 flex flex-col justify-between h-full min-h-[160px] space-y-6">
-                    <div className="relative flex aspect-square size-12 rounded-full border border-gray-200 bg-white/40 shadow-sm before:absolute before:-inset-2 before:rounded-full before:border before:border-gray-200/30">
-                      <Shield className="m-auto size-5 text-brand-blue" strokeWidth={2} />
+                    <div className="relative flex aspect-square size-12 rounded-full border border-white/10 bg-white/10 shadow-sm before:absolute before:-inset-2 before:rounded-full before:border before:border-white/10">
+                      <Shield className="m-auto size-5 text-brand-cyan" strokeWidth={2} />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-blue transition-colors">Verified Credentials</h3>
-                      <p className="text-sm text-gray-600 leading-relaxed font-medium">Earn industry-recognized, shareable certificates that validate your practical engineering skills.</p>
+                      <h3 className="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors">Verified Credentials</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed font-medium">Earn industry-recognized, shareable certificates that validate your practical engineering skills.</p>
                     </div>
                   </div>
-                  <div className="rounded-tl-2xl border-l border-t border-slate-200/60 bg-white/30 relative -mb-6 -mr-6 mt-6 h-fit p-6 py-6 sm:ml-6 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-all duration-500">
+                  <div className="rounded-tl-2xl border-l border-t border-white/10 bg-white/5 relative -mb-6 -mr-6 mt-6 h-fit p-6 py-6 sm:ml-6 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-all duration-500">
                     <div className="absolute left-3 top-2 flex gap-1">
-                      <span className="block size-2 rounded-full bg-slate-300"></span>
-                      <span className="block size-2 rounded-full bg-slate-300"></span>
-                      <span className="block size-2 rounded-full bg-slate-300"></span>
+                      <span className="block size-2 rounded-full bg-white/10"></span>
+                      <span className="block size-2 rounded-full bg-white/10"></span>
+                      <span className="block size-2 rounded-full bg-white/10"></span>
                     </div>
-                    <svg className="w-full sm:w-[150%] text-slate-300 group-hover:text-slate-400 transition-colors duration-500" viewBox="0 0 366 231" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="w-full sm:w-[150%] text-slate-700/40 group-hover:text-slate-600/50 transition-colors duration-500" viewBox="0 0 366 231" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -761,21 +761,21 @@ export default function App() {
               </div>
 
               {/* Card 5: 1-on-1 Mentorship */}
-              <div className="relative col-span-full overflow-hidden lg:col-span-3 rounded-3xl border border-white/60 bg-white/40 backdrop-blur-md shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-brand-blue/20 hover:bg-white/60 transition-all duration-500 group">
+              <div className="relative col-span-full overflow-hidden lg:col-span-3 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-brand-blue/20 hover:bg-white/10 transition-all duration-500 group">
                 <div className="grid pt-8 pb-6 px-6 sm:grid-cols-2 gap-6 items-center">
                   <div className="relative z-10 flex flex-col justify-between h-full min-h-[160px] space-y-6">
-                    <div className="relative flex aspect-square size-12 rounded-full border border-gray-200 bg-white/40 shadow-sm before:absolute before:-inset-2 before:rounded-full before:border before:border-gray-200/30">
-                      <Users className="m-auto size-5 text-brand-blue" strokeWidth={2} />
+                    <div className="relative flex aspect-square size-12 rounded-full border border-white/10 bg-white/10 shadow-sm before:absolute before:-inset-2 before:rounded-full before:border before:border-white/10">
+                      <Users className="m-auto size-5 text-brand-cyan" strokeWidth={2} />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-blue transition-colors">1-on-1 Mentorship</h3>
-                      <p className="text-sm text-gray-600 leading-relaxed font-medium">Get personalized code reviews, weekly 1-on-1 strategy sessions, and real-time support from active tech professionals.</p>
+                      <h3 className="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors">1-on-1 Mentorship</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed font-medium">Get personalized code reviews, weekly 1-on-1 strategy sessions, and real-time support from active tech professionals.</p>
                     </div>
                   </div>
-                  <div className="relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px before:bg-slate-200/80 sm:-my-6 sm:-mr-6 group-hover:scale-105 transition-transform duration-500">
+                  <div className="relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px before:bg-white/10 sm:-my-6 sm:-mr-6 group-hover:scale-105 transition-transform duration-500">
                     <div className="relative flex h-full flex-col justify-center space-y-6 py-6">
                       <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                        <span className="block h-fit rounded-lg border border-slate-200/60 bg-white/80 px-2 py-1 text-xs font-bold text-slate-700 shadow-sm">Siddharth (Mentor)</span>
+                        <span className="block h-fit rounded-lg border border-white/10 bg-white/10 px-2 py-1 text-xs font-bold text-slate-300 shadow-sm">Siddharth (Mentor)</span>
                         <div className="ring-white size-8 ring-4 rounded-full overflow-hidden shadow-md">
                           <img className="size-full object-cover" src="https://avatars.githubusercontent.com/u/102558960?v=4" alt="Mentor" />
                         </div>
@@ -784,10 +784,10 @@ export default function App() {
                         <div className="ring-white size-10 ring-4 rounded-full overflow-hidden shadow-md">
                           <img className="size-full object-cover" src="https://avatars.githubusercontent.com/u/47919550?v=4" alt="Learner" />
                         </div>
-                        <span className="block h-fit rounded-lg border border-slate-200/60 bg-white/80 px-2 py-1 text-xs font-bold text-slate-700 shadow-sm">Rohan (Learner)</span>
+                        <span className="block h-fit rounded-lg border border-white/10 bg-white/10 px-2 py-1 text-xs font-bold text-slate-300 shadow-sm">Rohan (Learner)</span>
                       </div>
                       <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                        <span className="block h-fit rounded-lg border border-slate-200/60 bg-white/80 px-2 py-1 text-xs font-bold text-slate-700 shadow-sm">Aisha (Mentor)</span>
+                        <span className="block h-fit rounded-lg border border-white/10 bg-white/10 px-2 py-1 text-xs font-bold text-slate-300 shadow-sm">Aisha (Mentor)</span>
                         <div className="ring-white size-8 ring-4 rounded-full overflow-hidden shadow-md">
                           <img className="size-full object-cover" src="https://avatars.githubusercontent.com/u/31113941?v=4" alt="Mentor" />
                         </div>
