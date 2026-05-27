@@ -307,8 +307,18 @@ export default function App() {
               <NavHeader />
             </nav>
 
-            {/* Desktop WhatsApp CTA */}
-            <div className="hidden md:flex items-center">
+            {/* Desktop WhatsApp CTA & Referral Buttons */}
+            <div className="hidden md:flex items-center gap-3">
+              <a 
+                href={`https://wa.me/917204398855?text=${encodeURIComponent("Hey BrillneX 👋\n\nI want to refer a friend for your courses and earn ₹300 cashback! Please guide me on the referral process.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 text-slate-950 px-4 py-2.5 rounded-xl text-sm font-black transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 border border-yellow-300/30"
+              >
+                <Award className="h-5 w-5 text-slate-950 animate-pulse" />
+                <span>Refer & Earn ₹300</span>
+              </a>
+
               <a 
                 href="https://wa.me/917204398855"
                 target="_blank"
@@ -339,6 +349,17 @@ export default function App() {
             <a href="#why-choose-us" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</a>
             <a href="#outcomes" className="block px-3 py-3 rounded-md text-base font-semibold text-gray-300 hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>Career Outcomes</a>
             <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-3">
+              <a 
+                href={`https://wa.me/917204398855?text=${encodeURIComponent("Hey BrillneX 👋\n\nI want to refer a friend for your courses and earn ₹300 cashback! Please guide me on the referral process.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 text-slate-950 py-3 rounded-xl font-extrabold transition-all shadow-lg shadow-amber-500/10 border border-yellow-300/30"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Award className="h-5 w-5 text-slate-950 animate-pulse" />
+                <span>Refer & Earn ₹300</span>
+              </a>
+
               <a 
                 href="https://wa.me/917204398855"
                 target="_blank"
