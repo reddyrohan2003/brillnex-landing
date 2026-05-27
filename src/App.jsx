@@ -5,7 +5,7 @@ import {
   CheckCircle, PlayCircle, ArrowRight, BookOpen, Users,
   GraduationCap, TrendingUp, Shield
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { CinematicFooter } from './CinematicFooter';
 import { HoverButton } from './HoverButton';
 
@@ -255,19 +255,45 @@ function TopUrgencyBanner() {
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('software');
+  const [isReferModalOpen, setIsReferModalOpen] = useState(false);
+  const [referPhone, setReferPhone] = useState('');
+  const [referError, setReferError] = useState('');
 
-  const handleRefer = (e) => {
+  const openReferModal = (e) => {
     if (e) e.preventDefault();
-    const friendNumber = prompt("💸 Refer & Earn ₹300\n\nPlease enter the mobile number of the person you are referring:");
-    if (friendNumber) {
-      const cleanNumber = friendNumber.trim();
-      if (cleanNumber) {
-        const message = `Hey BrillneX 👋\n\nI want to refer a friend for your courses and claim my ₹300 referral bonus!\n\n📱 Referred Friend's Mobile Number: ${cleanNumber}\n\nPlease guide me on the next steps.`;
-        const url = `https://wa.me/917204398855?text=${encodeURIComponent(message)}`;
-        window.open(url, "_blank", "noopener,noreferrer");
-      }
-    }
+    setReferPhone('');
+    setReferError('');
+    setIsReferModalOpen(true);
   };
+
+  const handleReferSubmit = (e) => {
+    if (e) e.preventDefault();
+    const cleanNumber = referPhone.trim();
+    if (!cleanNumber) {
+      setReferError('Please enter a mobile number.');
+      return;
+    }
+    const phoneRegex = /^[0-9+\s-]{8,15}$/;
+    if (!phoneRegex.test(cleanNumber)) {
+      setReferError('Please enter a valid mobile number.');
+      return;
+    }
+
+    const message = `Hey BrillneX 👋\n\nI want to refer a friend for your courses and claim my ₹300 referral bonus!\n\n📱 Referred Friend's Mobile Number: ${cleanNumber}\n\nPlease guide me on the next steps.`;
+    const url = `https://wa.me/917204398855?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    setIsReferModalOpen(false);
+  };
+
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsReferModalOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const courseData = {
     software: [
@@ -324,7 +350,7 @@ export default function App() {
             {/* Desktop WhatsApp CTA & Referral Buttons */}
             <div className="hidden md:flex items-center gap-3">
               <button 
-                onClick={handleRefer}
+                onClick={openReferModal}
                 className="flex items-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 hover:bg-brand-cyan/20 hover:border-brand-cyan text-brand-cyan px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-brand-cyan/5 cursor-pointer"
               >
                 <Award className="h-5 w-5 text-brand-cyan animate-pulse" />
@@ -364,7 +390,7 @@ export default function App() {
               <button 
                 onClick={(e) => {
                   setIsMobileMenuOpen(false);
-                  handleRefer(e);
+                  openReferModal(e);
                 }}
                 className="w-full flex items-center justify-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 hover:bg-brand-cyan/20 hover:border-brand-cyan text-brand-cyan py-3 rounded-xl font-extrabold transition-all shadow-md shadow-brand-cyan/5 cursor-pointer"
               >
@@ -997,6 +1023,103 @@ export default function App() {
 
       {/* Cinematic Footer */}
       <CinematicFooter />
+
+      {/* Premium Referral Modal (Accessible & Universal Mobile support) */}
+      <AnimatePresence>
+        {isReferModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            {/* Backdrop Overlay */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsReferModalOpen(false)}
+              className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm cursor-pointer"
+            />
+
+            {/* Modal Body Container */}
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0, y: 15 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 15 }}
+              transition={{ type: "spring", duration: 0.35 }}
+              className="relative z-10 bg-[#131b2e]/95 border border-brand-cyan/25 w-full max-w-md rounded-2xl p-6 md:p-8 shadow-2xl shadow-brand-cyan/5 backdrop-blur-md overflow-hidden"
+              role="dialog"
+              aria-modal="true"
+            >
+              {/* Subtle visual ambient back-glows */}
+              <div className="absolute -top-12 -left-12 w-32 h-32 bg-brand-cyan/15 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-brand-blue/15 rounded-full blur-2xl pointer-events-none" />
+
+              {/* Close Button X */}
+              <button 
+                onClick={() => setIsReferModalOpen(false)}
+                className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors cursor-pointer p-1 rounded-full hover:bg-white/5 outline-none"
+                aria-label="Close modal"
+              >
+                <X size={18} />
+              </button>
+
+              {/* Modal Header */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-10 w-10 bg-brand-cyan/10 border border-brand-cyan/20 rounded-xl flex items-center justify-center shrink-0">
+                  <Award className="h-5 w-5 text-brand-cyan animate-pulse" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-white leading-none uppercase tracking-wide">Refer & Earn ₹300</h3>
+                  <span className="text-[9px] text-brand-cyan font-bold tracking-widest uppercase mt-1 block">Claim Referral Cashback</span>
+                </div>
+              </div>
+
+              {/* Form Content */}
+              <form onSubmit={handleReferSubmit} className="space-y-5">
+                <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-medium">
+                  Enter the mobile number of the person you are referring. We will instantly pre-fill your referral details and direct you to WhatsApp to claim your ₹300 bonus!
+                </p>
+
+                <div className="space-y-2">
+                  <label htmlFor="friend-phone" className="block text-[10px] font-black uppercase tracking-widest text-slate-300">
+                    Friend's Mobile Number
+                  </label>
+                  <input
+                    id="friend-phone"
+                    type="tel"
+                    value={referPhone}
+                    onChange={(e) => {
+                      setReferPhone(e.target.value);
+                      if (referError) setReferError('');
+                    }}
+                    placeholder="e.g. +91 98765 43210"
+                    className="w-full bg-slate-900/50 border border-white/10 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan text-slate-200 text-sm px-4 py-3.5 rounded-xl outline-none transition-all placeholder:text-slate-600 font-medium font-sans"
+                    autoFocus
+                    required
+                  />
+                  {referError && (
+                    <p className="text-red-400 text-xs font-semibold animate-pulse">{referError}</p>
+                  )}
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setIsReferModalOpen(false)}
+                    className="w-full py-3.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:bg-white/5 text-xs font-extrabold uppercase tracking-widest transition-all cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-brand-cyan hover:to-brand-blue text-white py-3.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 shadow-lg shadow-brand-blue/20 hover:shadow-brand-blue/30 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>Submit & Send</span>
+                    <ArrowRight size={14} />
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
