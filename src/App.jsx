@@ -128,6 +128,45 @@ const companies = [
   { name: "meesho", className: "font-serif text-pink-600 font-black italic text-xl" }
 ];
 
+function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          let startTimestamp = null;
+          const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            setCount(Math.floor(progress * end));
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            }
+          };
+          window.requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+    };
+  }, [end, duration, hasAnimated]);
+
+  return <span ref={elementRef}>{count}{suffix}</span>;
+}
+
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('software');
@@ -793,39 +832,34 @@ export default function App() {
                 Our graduates don't just learn; they get hired. With our dedicated placement cell and industry-aligned curriculum, transitioning your career is a structured process, not a gamble.
               </p>
               
-              <ul className="space-y-4 mb-10">
+              <ul className="space-y-4">
                 {[
                   "Dedicated career coach for every learner",
                   "Resume building and mock interview sessions",
-                  "Direct referrals to our 500+ hiring partners"
+                  "Direct referrals to our 50+ hiring partners"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-slate-300 font-medium">
                     <CheckCircle size={24} className="text-brand-cyan flex-shrink-0" /> {item}
                   </li>
                 ))}
               </ul>
-
-              <button className="bg-brand-blue hover:bg-brand-blue/90 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-brand-blue/30 transition-all">
-                Download Placement Report
-              </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Outcome Stat Cards */}
-              <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
-                <Users size={32} className="text-brand-cyan mb-4" />
-                <div className="text-4xl font-black text-white mb-2">35k+</div>
+              <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm hover:border-brand-blue/30 transition-all duration-300 group">
+                <Users size={32} className="text-brand-cyan mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-4xl font-black text-white mb-2">
+                  <AnimatedCounter end={70} suffix="+" />
+                </div>
                 <div className="text-sm font-semibold text-slate-400">Learners Placed</div>
               </div>
-              <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
-                <TrendingUp size={32} className="text-brand-cyan mb-4" />
-                <div className="text-4xl font-black text-white mb-2">57%</div>
-                <div className="text-sm font-semibold text-slate-400">Average Salary Hike</div>
-              </div>
-              <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm sm:col-span-2">
-                <Award size={32} className="text-brand-cyan mb-4" />
-                <div className="text-4xl font-black text-white mb-2">₹32 LPA</div>
-                <div className="text-sm font-semibold text-slate-400">Highest Salary Offered (Software Engineering)</div>
+              <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm hover:border-brand-blue/30 transition-all duration-300 group">
+                <Clock size={32} className="text-brand-cyan mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-4xl font-black text-white mb-2">
+                  <AnimatedCounter end={765} suffix="+" />
+                </div>
+                <div className="text-sm font-semibold text-slate-400">Hours Students Learned</div>
               </div>
             </div>
 
