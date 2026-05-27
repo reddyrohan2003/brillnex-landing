@@ -912,7 +912,7 @@ export default function App() {
                   <div className="relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px before:bg-white/10 sm:-my-6 sm:-mr-6 group-hover:scale-105 transition-transform duration-500">
                     <div className="relative flex h-full flex-col justify-center space-y-6 py-6">
                       <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                        <span className="block h-fit rounded-lg border border-white/10 bg-white/10 px-2 py-1 text-xs font-bold text-slate-300 shadow-sm">Siddharth (Mentor)</span>
+                        <span className="block h-fit rounded-lg border border-white/10 bg-white/10 px-2 py-1 text-xs font-bold text-slate-300 shadow-sm">Mentor</span>
                         <div className="ring-white size-8 ring-4 rounded-full overflow-hidden shadow-md">
                           <img className="size-full object-cover" src="https://avatars.githubusercontent.com/u/102558960?v=4" alt="Mentor" />
                         </div>
@@ -921,10 +921,10 @@ export default function App() {
                         <div className="ring-white size-10 ring-4 rounded-full overflow-hidden shadow-md">
                           <img className="size-full object-cover" src="https://avatars.githubusercontent.com/u/47919550?v=4" alt="Learner" />
                         </div>
-                        <span className="block h-fit rounded-lg border border-white/10 bg-white/10 px-2 py-1 text-xs font-bold text-slate-300 shadow-sm">Rohan (Learner)</span>
+                        <span className="block h-fit rounded-lg border border-white/10 bg-white/10 px-2 py-1 text-xs font-bold text-slate-300 shadow-sm">Learner</span>
                       </div>
                       <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                        <span className="block h-fit rounded-lg border border-white/10 bg-white/10 px-2 py-1 text-xs font-bold text-slate-300 shadow-sm">Aisha (Mentor)</span>
+                        <span className="block h-fit rounded-lg border border-white/10 bg-white/10 px-2 py-1 text-xs font-bold text-slate-300 shadow-sm">Mentor</span>
                         <div className="ring-white size-8 ring-4 rounded-full overflow-hidden shadow-md">
                           <img className="size-full object-cover" src="https://avatars.githubusercontent.com/u/31113941?v=4" alt="Mentor" />
                         </div>
