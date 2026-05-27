@@ -11,7 +11,7 @@ function cn(...classes) {
  */
 
 const HoverButton = React.forwardRef(
-  ({ className, children, as: Component = "button", ...props }, ref) => {
+  ({ className, children, as: Component = "button", size = "md", ...props }, ref) => {
     const buttonRef = React.useRef(null);
     const [hovered, setHovered] = React.useState(false);
 
@@ -23,11 +23,8 @@ const HoverButton = React.forwardRef(
           else if (ref) ref.current = node;
         }}
         className={cn(
-          "relative isolate px-6 py-2.5 rounded-xl",
-          "font-bold text-sm leading-6",
-          "cursor-pointer overflow-hidden",
-          "active:scale-95",
-          "flex items-center gap-2",
+          "relative isolate rounded-xl font-bold cursor-pointer overflow-hidden active:scale-95 flex items-center gap-1.5 shrink-0",
+          size === "sm" ? "px-3 py-1.5 text-xs leading-4" : "px-6 py-2.5 text-sm leading-6",
           className
         )}
         onPointerEnter={() => setHovered(true)}

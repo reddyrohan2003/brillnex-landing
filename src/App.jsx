@@ -110,22 +110,22 @@ const Cursor = ({ position }) => {
 };
 
 const companies = [
-  { name: "Microsoft", className: "font-serif text-slate-300 font-black text-xl" },
-  { name: "Postman", className: "font-sans text-orange-500 font-extrabold tracking-tight text-xl" },
-  { name: "amazon", className: "tracking-tight text-orange-500 font-bold text-xl" },
-  { name: "Zerodha", className: "font-sans text-blue-600 font-black tracking-tight text-xl" },
-  { name: "Google", className: "italic text-slate-300 font-bold text-xl" },
-  { name: "Groww", className: "font-sans text-emerald-500 font-black tracking-tight text-xl" },
-  { name: "Razorpay", className: "text-blue-600 font-extrabold italic text-xl" },
-  { name: "inVideo", className: "font-mono text-indigo-500 font-extrabold tracking-wide text-xl" },
-  { name: "zepto", className: "text-purple-600 font-black italic text-xl" },
-  { name: "Simpl", className: "font-sans text-emerald-400 font-black italic text-xl" },
-  { name: "CRED", className: "font-mono text-slate-300 font-bold tracking-[0.2em] text-lg" },
-  { name: "dunzo", className: "font-mono text-green-600 font-black tracking-widest uppercase text-lg" },
-  { name: "Hasura", className: "font-sans text-slate-300 font-bold tracking-tight text-xl" },
-  { name: "zomato", className: "font-serif text-red-600 font-black text-xl" },
-  { name: "Ola", className: "font-sans text-slate-300 font-black uppercase tracking-wider text-xl" },
-  { name: "meesho", className: "font-serif text-pink-600 font-black italic text-xl" }
+  { name: "Microsoft", className: "font-serif text-xl font-black" },
+  { name: "Postman", className: "font-sans text-xl font-extrabold tracking-tight" },
+  { name: "amazon", className: "text-xl font-bold tracking-tight" },
+  { name: "Zerodha", className: "font-sans text-xl font-black tracking-tight" },
+  { name: "Google", className: "italic text-xl font-bold" },
+  { name: "Groww", className: "font-sans text-xl font-black tracking-tight" },
+  { name: "Razorpay", className: "text-xl font-extrabold italic" },
+  { name: "inVideo", className: "font-mono text-xl font-extrabold tracking-wide" },
+  { name: "zepto", className: "text-xl font-black italic" },
+  { name: "Simpl", className: "font-sans text-xl font-black italic" },
+  { name: "CRED", className: "font-mono text-lg font-bold tracking-[0.2em]" },
+  { name: "dunzo", className: "font-mono text-lg font-black tracking-widest uppercase" },
+  { name: "Hasura", className: "font-sans text-xl font-bold tracking-tight" },
+  { name: "zomato", className: "font-serif text-xl font-black" },
+  { name: "Ola", className: "font-sans text-xl font-black uppercase tracking-wider" },
+  { name: "meesho", className: "font-serif text-xl font-black italic" }
 ];
 
 function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
@@ -167,6 +167,90 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
   return <span ref={elementRef}>{count}{suffix}</span>;
 }
 
+function TopUrgencyBanner() {
+  const [timeLeft, setTimeLeft] = useState(50400); // 14 hours in seconds (14 * 3600)
+  const [slotsLeft, setSlotsLeft] = useState(4);
+
+  React.useEffect(() => {
+    // Countdown timer
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          return 50400; // reset to 14h to keep urgency active for new visitors
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    // Dynamic slot reduction simulation
+    const slotTimer = setInterval(() => {
+      setSlotsLeft((prev) => {
+        if (prev <= 2) {
+          return 5; // Reset back to 5 slots
+        }
+        return prev - 1;
+      });
+    }, 25000); // drops every 25 seconds
+
+    return () => {
+      clearInterval(timer);
+      clearInterval(slotTimer);
+    };
+  }, []);
+
+  const formatTime = (seconds) => {
+    const hrs = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  return (
+    <div className="relative overflow-hidden bg-gradient-to-r from-red-600 via-[#4F46E5] to-[#00C2FF] bg-[length:200%_auto] animate-banner-shimmer text-white text-xs md:text-sm font-semibold py-2.5 px-4 text-center tracking-wide shadow-md shadow-red-500/10 z-[100] border-b border-white/10 flex flex-wrap items-center justify-center gap-3">
+      <style>{`
+        @keyframes banner-shimmer {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .animate-banner-shimmer {
+          animation: banner-shimmer 6s ease infinite;
+        }
+      `}</style>
+      
+      {/* Flashing Live Tag */}
+      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/35 border border-white/20 text-white font-extrabold text-[10px] md:text-xs uppercase tracking-widest animate-pulse shadow-sm">
+        <span className="h-2 w-2 rounded-full bg-red-500 animate-ping" />
+        Few Slots Left
+      </span>
+
+      <span className="font-bold tracking-tight text-[11px] md:text-[13px]">
+        Book now and get discount of <span className="text-yellow-300 font-black underline decoration-yellow-300/40 decoration-2">upto 60%</span>!
+      </span>
+
+      {/* Slots and Timer Widgets */}
+      <div className="flex items-center gap-3.5 bg-black/25 border border-white/10 px-3 py-1 rounded-lg text-[10px] md:text-xs font-black shadow-inner">
+        <div className="flex items-center gap-1">
+          <span className="text-slate-300 uppercase tracking-widest text-[9px] font-bold">Slots:</span>
+          <span className="text-red-400 font-black animate-pulse text-xs">{slotsLeft} remaining</span>
+        </div>
+        <div className="h-3 w-px bg-white/20" />
+        <div className="flex items-center gap-1.5">
+          <span className="text-slate-300 uppercase tracking-widest text-[9px] font-bold">Expires In:</span>
+          <span className="text-yellow-300 font-mono tracking-wider font-extrabold text-xs">{formatTime(timeLeft)}</span>
+        </div>
+      </div>
+
+      <a 
+        href="#courses"
+        className="inline-flex items-center gap-1 px-3.5 py-1 rounded-md bg-white text-[#4F46E5] hover:bg-slate-100 hover:text-[#00C2FF] font-black text-[10px] md:text-xs uppercase tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-black/10"
+      >
+        <span>Book Now &rarr;</span>
+      </a>
+    </div>
+  );
+}
+
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('software');
@@ -190,12 +274,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F1F5F9] font-sans text-gray-900 selection:bg-brand-blue/20 selection:text-brand-blue">
+    <div className="min-h-screen bg-[#0b1326] font-sans text-slate-200 selection:bg-brand-blue/20 selection:text-brand-blue">
       
-      {/* Top Notification Bar */}
-      <div className="bg-brand-blue text-white text-xs font-medium py-2 px-4 text-center tracking-wide">
-        New Batches Starting Soon. <span className="text-white/90 font-bold ml-1 cursor-pointer hover:underline">Claim your Early Bird Scholarship &rarr;</span>
-      </div>
+      {/* Top Urgency Banner */}
+      <TopUrgencyBanner />
 
       {/* Navigation (Dark Theme to match Logo background) */}
       <header className="bg-[#0b1326] border-b border-white/10 sticky top-0 z-50">
@@ -292,9 +374,20 @@ export default function App() {
               transition={{ duration: 1.5 }}
               className="max-w-2xl relative z-10"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-bold tracking-wide mb-6">
-                <TrendingUp size={16} /> We Are Officially Launched!
-              </div>
+              <motion.div 
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: [ -20, 5, 0 ], opacity: 1 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ 
+                  duration: 1.0, 
+                  type: "spring", 
+                  stiffness: 120, 
+                  damping: 12
+                }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/10 border border-brand-cyan/25 text-brand-cyan text-sm font-bold tracking-wide mb-6 cursor-default shadow-[0_0_15px_rgba(137,206,255,0.1)]"
+              >
+                <TrendingUp size={16} className="animate-pulse text-brand-cyan" /> We are Offically launched
+              </motion.div>
               
               {/* Dynamic Animated Letters Headline */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
@@ -394,9 +487,9 @@ export default function App() {
       </section>
 
       {/* Hiring Partners Marquee */}
-      <section className="border-y border-white/10 bg-[#131b2e]/50 py-8 backdrop-blur-sm overflow-hidden w-full relative">
+      <section className="border-y border-white/5 bg-[#0b1326] py-8 overflow-hidden w-full relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
-          <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest">Brillnex Alumni Work At</p>
+          <p className="text-center text-sm font-bold text-slate-500 uppercase tracking-widest">Brillnex Alumni Work At</p>
         </div>
         
         {/* Infinite Marquee Slider */}
@@ -407,13 +500,19 @@ export default function App() {
           
           <div className="animate-logo-marquee flex gap-12 md:gap-20 items-center whitespace-nowrap">
             {companies.map((company, idx) => (
-              <div key={`logo-1-${idx}`} className={`${company.className} select-none cursor-default hover:scale-105 transition-transform duration-300 filter grayscale hover:grayscale-0`}>
+              <div 
+                key={`logo-1-${idx}`} 
+                className={`${company.className} select-none cursor-default text-slate-400 hover:text-brand-cyan hover:scale-105 transition-all duration-300`}
+              >
                 {company.name}
               </div>
             ))}
             {/* Secondary duplicate copy for infinite seamless loop */}
             {companies.map((company, idx) => (
-              <div key={`logo-2-${idx}`} className={`${company.className} select-none cursor-default hover:scale-105 transition-transform duration-300 filter grayscale hover:grayscale-0`}>
+              <div 
+                key={`logo-2-${idx}`} 
+                className={`${company.className} select-none cursor-default text-slate-400 hover:text-brand-cyan hover:scale-105 transition-all duration-300`}
+              >
                 {company.name}
               </div>
             ))}
@@ -514,7 +613,11 @@ export default function App() {
           </div>
 
           {/* Course Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 ${
+            courseData[activeTab].length === 4 ? 'lg:grid-cols-4' : 
+            courseData[activeTab].length === 2 ? 'lg:grid-cols-2 max-w-4xl mx-auto' : 
+            'lg:grid-cols-3'
+          }`}>
             {courseData[activeTab].map((course) => (
               <div key={course.id} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgba(79,70,229,0.12)] hover:-translate-y-[3px] hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full relative">
                 
@@ -554,25 +657,25 @@ export default function App() {
                   </div>
 
                   {/* CTA & Pricing on the Popout */}
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between mt-auto">
-                    <div className="flex flex-col">
-                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Offer Price</span>
-                      <span className="text-xl font-black text-brand-cyan">₹7,500</span>
+                  <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-2 mt-auto">
+                    <div className="flex flex-col shrink-0">
+                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider leading-none mb-1">Offer Price</span>
+                      <span className="text-lg font-black text-brand-cyan leading-none">₹7,500</span>
                     </div>
                     <a 
                       href={`https://wa.me/917204398855?text=${encodeURIComponent(`Hey BrillneX 👋\n\nI'm interested in the ${course.title} program and would like to know more about:\n• Course structure\n• Internship opportunities\n• Fees\n• Upcoming batches\n• Placement support\n\nPlease share the details.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-brand-cyan hover:to-brand-blue text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition-all shadow-lg shadow-brand-blue/30 active:scale-95"
+                      className="bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-brand-cyan hover:to-brand-blue text-white text-xs font-extrabold px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-all shadow-lg shadow-brand-blue/30 active:scale-95 shrink-0"
                     >
-                      <MessageSquare className="h-4 w-4" />
+                      <MessageSquare className="h-3.5 w-3.5 shrink-0" />
                       <span>Talk to Mentor</span>
                     </a>
                   </div>
                 </div>
 
                 {/* Card Header area */}
-                <div className="p-6 pb-5 border-b border-white/10 bg-white/5 backdrop-blur-sm">
+                <div className="p-6 pb-5 border-b border-white/10 bg-transparent backdrop-blur-sm">
                   <div className="flex justify-between items-start mb-4">
                     <div className="bg-brand-blue/10 text-brand-blue text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                       <Award size={14} /> Certificate
@@ -581,7 +684,7 @@ export default function App() {
                       <span className="bg-brand-cyan/10 text-brand-cyan text-[10px] uppercase font-black tracking-wider px-2 py-1 rounded">Bestseller</span>
                     )}
                   </div>
-                  <h3 className="text-xl font-extrabold text-white leading-snug mb-2 group-hover:text-brand-blue transition-colors">
+                  <h3 className="text-xl font-extrabold text-white leading-snug mb-2 group-hover:text-brand-cyan transition-colors">
                     {course.title}
                   </h3>
                   <p className="text-sm font-medium text-slate-400 flex items-center gap-2">
@@ -598,19 +701,19 @@ export default function App() {
                   </div>
 
                   {/* Card Footer (Price & CTA) */}
-                  <div className="mt-auto pt-5 border-t border-white/10 flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <p className="text-xs text-slate-400 font-bold mb-1 uppercase tracking-wider">Starting at</p>
-                      <div className="flex items-baseline gap-2">
+                  <div className="mt-auto pt-5 border-t border-white/10 flex items-center justify-between gap-2">
+                    <div className="flex flex-col shrink-0">
+                      <p className="text-[10px] text-slate-400 font-bold mb-0.5 uppercase tracking-wider">Starting at</p>
+                      <div className="flex items-baseline gap-1.5">
                         {/* Original Strikethrough Price */}
-                        <span className="text-sm font-semibold text-slate-500 line-through decoration-red-500/80 decoration-2">
+                        <span className="text-xs font-semibold text-slate-500 line-through decoration-red-500/80 decoration-2">
                           ₹15,000
                         </span>
                         {/* Animated Offer Price */}
                         <motion.span 
-                          className="text-2xl font-black text-brand-blue"
+                          className="text-xl font-black text-brand-cyan"
                           initial={{ scale: 0.95 }}
-                          animate={{ scale: [1, 1.06, 1] }}
+                          animate={{ scale: [1, 1.05, 1] }}
                           transition={{
                             duration: 2,
                             repeat: Number.POSITIVE_INFINITY,
@@ -621,18 +724,19 @@ export default function App() {
                         </motion.span>
                       </div>
                       {/* Interactive urgent discount tag */}
-                      <span className="text-[9px] font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md mt-1 w-fit border border-emerald-500/20 animate-pulse">
+                      <span className="text-[8px] font-black text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded-md mt-0.5 w-fit border border-emerald-500/20 animate-pulse">
                         50% OFF TODAY
                       </span>
                     </div>
                     <HoverButton
                       as="a"
+                      size="sm"
                       href={`https://wa.me/917204398855?text=${encodeURIComponent(`Hey BrillneX 👋\n\nI'm interested in the ${course.title} program and would like to know more about:\n• Course structure\n• Internship opportunities\n• Fees\n• Upcoming batches\n• Placement support\n\nPlease share the details.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <MessageSquare className="h-4 w-4" />
-                      Talk to Mentor
+                      <MessageSquare className="h-3.5 w-3.5 shrink-0" />
+                      <span>Talk to Mentor</span>
                     </HoverButton>
                   </div>
                 </div>
