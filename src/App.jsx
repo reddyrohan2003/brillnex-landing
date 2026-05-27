@@ -324,24 +324,14 @@ export default function App() {
                 Industry-ready tech education dedicated to delivering excellence with <strong>Real Projects</strong> & <strong>Real Skills</strong>.
               </p>
               
-              {/* High-Conversion Form inside Hero */}
-              <div className="bg-white/80 backdrop-blur-md border border-[rgba(30,136,255,0.2)] p-2 rounded-xl shadow-[0_8px_30px_rgba(30,136,255,0.08)] flex flex-col sm:flex-row gap-2 max-w-lg relative z-20">
-                <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-                  <input 
-                    type="text" 
-                    placeholder="Search courses (e.g. AI, DevOps)" 
-                    className="w-full pl-10 pr-4 py-3 rounded-lg bg-white/40 border-transparent focus:bg-white/60 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-slate-900 placeholder-gray-500"
-                  />
-                </div>
-                <button className="bg-gradient-to-r from-[#1E88FF] to-[#00C2FF] hover:from-[#00C2FF] hover:to-[#1E88FF] text-white px-8 py-3 rounded-lg font-bold shadow-lg shadow-brand-blue/20 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap">
-                  Explore Programs
-                </button>
-              </div>
-
-              <div className="mt-8 flex items-center gap-6 text-sm font-medium text-gray-500">
-                <div className="flex items-center gap-2"><CheckCircle size={18} className="text-brand-blue" /> EMI Options Available</div>
-                <div className="flex items-center gap-2"><CheckCircle size={18} className="text-brand-blue" /> 1-on-1 Mentorship</div>
+              {/* Call-to-Action Button inside Hero */}
+              <div className="relative z-20">
+                <a 
+                  href="#courses" 
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1E88FF] to-[#00C2FF] hover:from-[#00C2FF] hover:to-[#1E88FF] text-white px-10 py-4 rounded-xl font-bold shadow-lg shadow-brand-blue/20 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap text-base"
+                >
+                  Explore Programs <ArrowRight size={18} />
+                </a>
               </div>
             </motion.div>
 
