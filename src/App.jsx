@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { MessageSquare } from 'lucide-react';
 import { 
-  Search, Menu, X, ChevronRight, Clock, Award, Briefcase, 
-  CheckCircle, PlayCircle, Star, ArrowRight, BookOpen, Users,
+  Menu, X, Clock, Award, Briefcase, 
+  CheckCircle, PlayCircle, ArrowRight, BookOpen, Users,
   GraduationCap, TrendingUp, Shield
 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -45,7 +45,7 @@ function FloatingPaths({ position }) {
               pathOffset: [0, 1, 0],
             }}
             transition={{
-              duration: 20 + Math.random() * 10,
+              duration: 20 + ((path.id * 17) % 10),
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             }}
@@ -134,6 +134,7 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   React.useEffect(() => {
+    const currentElement = elementRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
@@ -153,13 +154,13 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
       { threshold: 0.1 }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    if (currentElement) {
+      observer.observe(currentElement);
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
+      if (currentElement) {
+        observer.unobserve(currentElement);
       }
     };
   }, [end, duration, hasAnimated]);
