@@ -110,22 +110,23 @@ const Cursor = ({ position }) => {
 };
 
 const companies = [
-  { name: "Microsoft", className: "font-serif text-xl font-black" },
-  { name: "Postman", className: "font-sans text-xl font-extrabold tracking-tight" },
-  { name: "amazon", className: "text-xl font-bold tracking-tight" },
-  { name: "Zerodha", className: "font-sans text-xl font-black tracking-tight" },
-  { name: "Google", className: "italic text-xl font-bold" },
-  { name: "Groww", className: "font-sans text-xl font-black tracking-tight" },
-  { name: "Razorpay", className: "text-xl font-extrabold italic" },
-  { name: "inVideo", className: "font-mono text-xl font-extrabold tracking-wide" },
-  { name: "zepto", className: "text-xl font-black italic" },
-  { name: "Simpl", className: "font-sans text-xl font-black italic" },
-  { name: "CRED", className: "font-mono text-lg font-bold tracking-[0.2em]" },
-  { name: "dunzo", className: "font-mono text-lg font-black tracking-widest uppercase" },
-  { name: "Hasura", className: "font-sans text-xl font-bold tracking-tight" },
-  { name: "zomato", className: "font-serif text-xl font-black" },
-  { name: "Ola", className: "font-sans text-xl font-black uppercase tracking-wider" },
-  { name: "meesho", className: "font-serif text-xl font-black italic" }
+  { name: "Microsoft", slug: "microsoft" },
+  { name: "Postman", slug: "postman" },
+  { name: "Amazon", slug: "amazon" },
+  { name: "Google", slug: "google" },
+  { name: "Flipkart", slug: "flipkart" },
+  { name: "Paytm", slug: "paytm" },
+  { name: "PhonePe", slug: "phonepe" },
+  { name: "Razorpay", slug: "razorpay" },
+  { name: "Zomato", slug: "zomato" },
+  { name: "Dunzo", slug: "dunzo" },
+  { name: "Hasura", slug: "hasura" },
+  { name: "Zerodha", slug: "zerodha" },
+  { name: "Tata", slug: "tata" },
+  { name: "Wipro", slug: "wipro" },
+  { name: "Infosys", slug: "infosys" },
+  { name: "Accenture", slug: "accenture" },
+  { name: "Cognizant", slug: "cognizant" }
 ];
 
 function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
@@ -596,21 +597,25 @@ export default function App() {
           
           <div className="animate-logo-marquee flex gap-12 md:gap-20 items-center whitespace-nowrap">
             {companies.map((company, idx) => (
-              <div 
-                key={`logo-1-${idx}`} 
-                className={`${company.className} select-none cursor-default text-slate-400 hover:text-brand-cyan hover:scale-105 transition-all duration-300`}
-              >
-                {company.name}
-              </div>
+              <img
+                key={`logo-1-${idx}`}
+                src={`https://cdn.jsdelivr.net/npm/simple-icons@11.0.0/icons/${company.slug}.svg`}
+                alt={company.name}
+                title={company.name}
+                className="h-7 md:h-9 w-auto object-contain select-none cursor-default opacity-40 hover:opacity-100 hover:scale-110 transition-all duration-300"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
             ))}
             {/* Secondary duplicate copy for infinite seamless loop */}
             {companies.map((company, idx) => (
-              <div 
-                key={`logo-2-${idx}`} 
-                className={`${company.className} select-none cursor-default text-slate-400 hover:text-brand-cyan hover:scale-105 transition-all duration-300`}
-              >
-                {company.name}
-              </div>
+              <img
+                key={`logo-2-${idx}`}
+                src={`https://cdn.jsdelivr.net/npm/simple-icons@11.0.0/icons/${company.slug}.svg`}
+                alt={company.name}
+                title={company.name}
+                className="h-7 md:h-9 w-auto object-contain select-none cursor-default opacity-40 hover:opacity-100 hover:scale-110 transition-all duration-300"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
             ))}
           </div>
         </div>
